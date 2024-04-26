@@ -4,13 +4,24 @@
  * 2.
  */
 
-import React from "react";
+import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../providers/AuthProvider";
+import { toast } from "react-toastify";
 
 const NavBar = () => {
-  // reuseable classes and nav links for the navbar items
+  const { user, signOutUser } = useContext(AuthContext);
 
-  const user = 0;
+  const handleSignOutUser = () => {
+    signOutUser()
+      .then(() => {
+        toast.success("successfully sign out");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+  // reuseable classes and nav links for the navbar items
   const activeClass = ({ isActive }) =>
     `py-3 px-4 text-white hover:text-red-400 hover:rounded-xl  transition ease-in-out delay-150  ${
       isActive ? "text-red-400" : ""
@@ -94,7 +105,10 @@ const NavBar = () => {
                 />
               </div>
             </div>
-            <button className=" btn rounded-full bg-[#FF1744] transition ease-in-out delay-100 duration-150 hover:bg-red-700 border-none hover:text-white">
+            <button
+              onClick={handleSignOutUser}
+              className=" btn rounded-full bg-[#FF1744] transition ease-in-out delay-100 duration-150 hover:bg-red-700 border-none hover:text-white"
+            >
               SignOut
             </button>
           </div>

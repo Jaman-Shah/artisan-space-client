@@ -11,6 +11,7 @@ import AddCraft from "../components/AddCraft/AddCraft";
 import MyArtAndCraft from "./../components/MyArtAndCraft/MyArtAndCraft";
 import Login from "../components/Login/Login";
 import Register from "../components/Register/Register";
+import PrivateRoute from "./PrivateRoute";
 export const routers = createBrowserRouter([
   {
     path: "/",
@@ -26,11 +27,19 @@ export const routers = createBrowserRouter([
       },
       {
         path: "/addcraft",
-        element: <AddCraft />,
+        element: (
+          <PrivateRoute>
+            <AddCraft />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/myartandcraft",
-        element: <MyArtAndCraft />,
+        element: (
+          <PrivateRoute>
+            <MyArtAndCraft />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/login",
