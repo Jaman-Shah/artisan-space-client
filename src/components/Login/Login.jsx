@@ -11,7 +11,8 @@ const Login = () => {
   const [eyeOpen, setEyeOpen] = useState(false);
 
   // importing loginUser function from auth provider
-  const { loginUser, signInWithGoogle } = useContext(AuthContext);
+  const { loginUser, signInWithGoogle, signInWithGithub } =
+    useContext(AuthContext);
 
   // importing navigate function
   const navigate = useNavigate();
@@ -40,9 +41,19 @@ const Login = () => {
   };
 
   // google popup login function
-
   const handleGoogleLogIn = () => {
     signInWithGoogle()
+      .then((result) => {
+        navigate(location.state || "/");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  // github popup login function
+  const handleGithubLogin = () => {
+    signInWithGithub()
       .then((result) => {
         navigate(location.state || "/");
       })
@@ -118,7 +129,10 @@ const Login = () => {
             <FaGoogle />
             Google Login
           </button>
-          <button className="btn bg-black text-white border-none w-1/2 transition duration-500 rounded-none  hover:bg-green-500  p-4">
+          <button
+            onClick={handleGithubLogin}
+            className="btn bg-black text-white border-none w-1/2 transition duration-500 rounded-none  hover:bg-green-500  p-4"
+          >
             <FaGithub />
             Github Login
           </button>
