@@ -11,7 +11,7 @@ const Login = () => {
   const [eyeOpen, setEyeOpen] = useState(false);
 
   // importing loginUser function from auth provider
-  const { loginUser } = useContext(AuthContext);
+  const { loginUser, signInWithGoogle } = useContext(AuthContext);
 
   // importing navigate function
   const navigate = useNavigate();
@@ -36,6 +36,18 @@ const Login = () => {
         } else {
           toast.error("Login problem");
         }
+      });
+  };
+
+  // google popup login function
+
+  const handleGoogleLogIn = () => {
+    signInWithGoogle()
+      .then((result) => {
+        navigate(location.state || "/");
+      })
+      .catch((error) => {
+        console.log(error);
       });
   };
 
@@ -97,17 +109,20 @@ const Login = () => {
           <button className="btn bg-[#3D5AFE] hover:bg-green-500 transition duration-500 text-white border-2 w-full border-none  p-4">
             Login
           </button>
-          <div className="w-full flex  justify-between">
-            <button className="btn bg-orange-500 text-white  w-1/2 transition duration-500 border-none rounded-none hover:bg-green-500  p-4">
-              <FaGoogle />
-              Google Login
-            </button>
-            <button className="btn bg-black text-white border-none w-1/2 transition duration-500 rounded-none  hover:bg-green-500  p-4">
-              <FaGithub />
-              Github Login
-            </button>
-          </div>
         </form>
+        <div className="w-full flex mt-2 justify-between">
+          <button
+            onClick={handleGoogleLogIn}
+            className="btn bg-orange-500 text-white  w-1/2 transition duration-500 border-none rounded-none hover:bg-green-500  p-4"
+          >
+            <FaGoogle />
+            Google Login
+          </button>
+          <button className="btn bg-black text-white border-none w-1/2 transition duration-500 rounded-none  hover:bg-green-500  p-4">
+            <FaGithub />
+            Github Login
+          </button>
+        </div>
       </div>
 
       {/* login right side  */}
