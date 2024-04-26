@@ -10,10 +10,10 @@ import { Link, NavLink } from "react-router-dom";
 const NavBar = () => {
   // reuseable classes and nav links for the navbar items
 
-  const user = 1;
+  const user = 0;
   const activeClass = ({ isActive }) =>
-    `py-3 px-4 text-white hover:text-red-400 hover:rounded-xl hover:text-white transition ease-in-out delay-150  ${
-      isActive ? "text-black text-[#FEA116]" : ""
+    `py-3 px-4 text-white hover:text-red-400 hover:rounded-xl  transition ease-in-out delay-150  ${
+      isActive ? "text-red-400" : ""
     }`;
 
   const links = (view) => {
@@ -32,11 +32,11 @@ const NavBar = () => {
         <NavLink to="/" className={activeClass}>
           HOME
         </NavLink>
+        <NavLink to="/artandcraft" className={activeClass}>
+          ART ADN CRAFT
+        </NavLink>
         {user ? (
           <div className="flex flex-col md:flex-col lg:flex-row">
-            <NavLink to="/artandcraft" className={activeClass}>
-              ART ADN CRAFT
-            </NavLink>
             <NavLink to="/addcraft" className={activeClass}>
               ADD CRAFT
             </NavLink>
@@ -103,13 +103,13 @@ const NavBar = () => {
           <div className="flex gap-3">
             <Link
               to="/login"
-              className=" flex items-center btn:sm md:btn-secondary  text-xs p-2  md:text-xl rounded-none bg-[#18dcff] hover:bg-green-400 border-none"
+              className=" flex items-center font-sm font-light btn:sm text-white md:btn-secondary  text-xs  p-2  md:text-sm rounded-full bg-none border-2 border-[#FF8F00]  transition duration-500 hover:bg-[#FF8F00] ease-in-out"
             >
               Login
             </Link>
             <Link
               to="/register"
-              className=" flex items-center btn:sm md:btn-secondary  text-xs p-2  md:text-xl rounded-none bg-[#18dcff] hover:bg-green-400 border-none"
+              className=" flex items-center font-light btn:sm text-white md:btn-secondary  text-xs p-2  md:text-sm rounded-full bg-none border-2 border-[#FF8F00]  transition duration-500 hover:bg-[#FF8F00] ease-in-out"
             >
               Register
             </Link>
