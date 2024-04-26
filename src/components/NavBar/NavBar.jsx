@@ -35,15 +35,14 @@ const NavBar = () => {
         <NavLink to="/artandcraft" className={activeClass}>
           ART ADN CRAFT
         </NavLink>
+        <NavLink to="/addcraft" className={activeClass}>
+          ADD CRAFT
+        </NavLink>
+        <NavLink to="/myartandcraft" className={activeClass}>
+          MY ART ADN CRAFT
+        </NavLink>
         {user ? (
-          <div className="flex flex-col md:flex-col lg:flex-row">
-            <NavLink to="/addcraft" className={activeClass}>
-              ADD CRAFT
-            </NavLink>
-            <NavLink to="/myartandcraft" className={activeClass}>
-              MY ART ADN CRAFT
-            </NavLink>
-          </div>
+          <div className="flex flex-col md:flex-col lg:flex-row"></div>
         ) : (
           ""
         )}

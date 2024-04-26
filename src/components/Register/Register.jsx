@@ -1,13 +1,91 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { MdEmail } from "react-icons/md";
 import { RiLockPasswordLine } from "react-icons/ri";
 import { FaUserAlt } from "react-icons/fa";
 import { BsFillEyeSlashFill, BsFillEyeFill } from "react-icons/bs";
 import { TbPhotoFilled } from "react-icons/tb";
-import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../providers/AuthProvider";
+import { updateProfile } from "firebase/auth";
+import { auth } from "../../firebase/firebase.config";
 
 const Register = () => {
   const [eyeOpen, setEyeOpen] = useState(false);
+
+  // importing create user function form auth context
+  const { createUser } = useContext(AuthContext);
+
+  // importing the navigate function
+  const navigate = useNavigate();
+
+  // password validating function
+  // validating password function
+  function validatePassword(password) {
+    const regex = /^(?=.*[A-Z])(?=.*[a-z]).{6,}$/;
+    return regex.test(password);
+  }
+  // registering the user function
+  const handleRegister = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const photo_url = form.photo_url.value;
+    const password = form.password.value;
+    console.log(name, email, photo_url, password);
+
+    //  validating password
+    if (!validatePassword(password)) {
+      let errorMessage = "";
+
+      // Testing upperCase
+      if (!/(?=.*[A-Z])/.test(password)) {
+        errorMessage += "Password must contain at least one uppercase letter.";
+      }
+
+      // Testing lowerCase
+      if (!/(?=.*[a-z])/.test(password)) {
+        errorMessage += "Password must contain at least one lowercase letter.";
+      }
+
+      // Testing length
+      if (password.length < 6) {
+        errorMessage += "Password must be at least 6 characters long.";
+      }
+
+      // Displaying the toast with the formatted error messages
+      toast.error(errorMessage, {
+        enableHtml: true,
+        autoClose: 1000,
+        style: {
+          backgroundColor: "red",
+          color: "white",
+        },
+      });
+    } else {
+      createUser(email, password)
+        .then((result) => {
+          // Adding user profile update
+          updateProfile(auth.currentUser, {
+            displayName: name,
+            photoURL: photo_url,
+          }).then(() => {
+            toast.success("Account Created Successfully");
+            navigate("/");
+          });
+        })
+        .catch((error) => {
+          console.log(error);
+          if (error.code === "auth/email-already-in-use") {
+            toast.error("This email is already in use.");
+          } else {
+            toast.error("An error occurred while creating the user.");
+            console.error(error);
+          }
+        });
+    }
+  };
   return (
     <div
       style={{
@@ -22,14 +100,13 @@ const Register = () => {
         <h1 className="font-extrabold text-6xl text-white text-center my-4 text-">
           Register Here :
         </h1>
-        <form action="" className="flex gap-4 flex-col ">
+        <form onSubmit={handleRegister} className="flex gap-4 flex-col ">
           <div className="relative">
             <FaUserAlt className="absolute text-[#64DD17] left-4 top-2 text-4xl" />
             <div>
               <input
                 type="text"
                 name="name"
-                id=""
                 placeholder="Enter your Name"
                 className="placeholder:text-white h-14 w-full bg-transparent border-4 p-6 pl-14 bg-none text-white border-[#5C6BC0] rounded-2xl"
                 required
@@ -42,7 +119,6 @@ const Register = () => {
               <input
                 type="email"
                 name="email"
-                id=""
                 placeholder="Enter your Email"
                 className="placeholder:text-white h-14 w-full bg-transparent border-4 p-6 pl-14 bg-none text-white border-[#5C6BC0] rounded-2xl"
                 required
@@ -55,7 +131,6 @@ const Register = () => {
               <input
                 type="text"
                 name="photo_url"
-                id=""
                 placeholder="Enter your Photo Url"
                 className="placeholder:text-white h-14 w-full bg-transparent border-4 p-6 pl-14 bg-none text-white border-[#5C6BC0] rounded-2xl"
                 required
@@ -68,7 +143,6 @@ const Register = () => {
               <input
                 type={eyeOpen ? "text" : "password"}
                 name="password"
-                id=""
                 placeholder="Enter your Password"
                 className="placeholder:text-white h-14 w-full bg-transparent border-4 p-6 pl-14 bg-none text-white border-[#5C6BC0] rounded-2xl"
                 required

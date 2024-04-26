@@ -1,12 +1,44 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { MdEmail } from "react-icons/md";
 import { RiLockPasswordLine } from "react-icons/ri";
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { BsFillEyeSlashFill, BsFillEyeFill } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../providers/AuthProvider";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const [eyeOpen, setEyeOpen] = useState(false);
+
+  // importing loginUser function from auth provider
+  const { loginUser } = useContext(AuthContext);
+
+  // importing navigate function
+  const navigate = useNavigate();
+
+  // importing location function
+  const location = useLocation();
+
+  // login button functionality
+  const handleLogin = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    loginUser(email, password)
+      .then((result) => {
+        toast.success("Login Success");
+        navigate(location.state || "/");
+      })
+      .catch((error) => {
+        if (error.code === "auth/invalid-credential") {
+          toast.error("Invalid credential");
+        } else {
+          toast.error("Login problem");
+        }
+      });
+  };
+
   return (
     <div
       style={{
@@ -21,14 +53,13 @@ const Login = () => {
         <h1 className="font-extrabold text-6xl text-white text-center my-4 text-">
           Login Here :
         </h1>
-        <form action="" className="flex gap-4 flex-col ">
+        <form onSubmit={handleLogin} className="flex gap-4 flex-col ">
           <div className="relative">
             <MdEmail className="absolute text-[#64DD17] left-4 top-2 text-4xl" />
             <div>
               <input
                 type="email"
                 name="email"
-                id=""
                 placeholder="Enter your Email"
                 className="placeholder:text-white h-14 w-full bg-transparent border-4 p-6 pl-14 bg-none text-white border-[#5C6BC0] rounded-2xl"
                 required
@@ -41,7 +72,6 @@ const Login = () => {
               <input
                 type={eyeOpen ? "text" : "password"}
                 name="password"
-                id=""
                 placeholder="Enter your Password"
                 className="placeholder:text-white h-14 w-full bg-transparent border-4 p-6 pl-14 bg-none text-white border-[#5C6BC0] rounded-2xl"
                 required
