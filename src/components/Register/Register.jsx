@@ -12,7 +12,7 @@ const Register = () => {
     <div
       style={{
         backgroundImage:
-          "url('https://i.ibb.co/yqfQTCs/spatula-paints-near-palette.jpg')",
+          "url('https://i.ibb.co/5x5Rjcw/scissor-jute-string-wrapped-gift-box-brown-paper.jpg')",
         bgOpacity: "0.5",
       }}
       className="bg-right-top bg-cover bg-no-repeat p-4 flex flex-col md:flex-row justify-between"
@@ -31,7 +31,7 @@ const Register = () => {
                 name="name"
                 id=""
                 placeholder="Enter your Name"
-                className="focus:placeholder-gray-50 h-14 w-full bg-transparent border-4 p-6 pl-14 bg-none text-white border-[#5C6BC0] rounded-2xl"
+                className="placeholder:text-white h-14 w-full bg-transparent border-4 p-6 pl-14 bg-none text-white border-[#5C6BC0] rounded-2xl"
                 required
               />
             </div>
@@ -44,7 +44,7 @@ const Register = () => {
                 name="email"
                 id=""
                 placeholder="Enter your Email"
-                className="focus:placeholder-gray-50 h-14 w-full bg-transparent border-4 p-6 pl-14 bg-none text-white border-[#5C6BC0] rounded-2xl"
+                className="placeholder:text-white h-14 w-full bg-transparent border-4 p-6 pl-14 bg-none text-white border-[#5C6BC0] rounded-2xl"
                 required
               />
             </div>
@@ -57,7 +57,7 @@ const Register = () => {
                 name="photo_url"
                 id=""
                 placeholder="Enter your Photo Url"
-                className="focus:placeholder-gray-50 h-14 w-full bg-transparent border-4 p-6 pl-14 bg-none text-white border-[#5C6BC0] rounded-2xl"
+                className="placeholder:text-white h-14 w-full bg-transparent border-4 p-6 pl-14 bg-none text-white border-[#5C6BC0] rounded-2xl"
                 required
               />
             </div>
@@ -70,7 +70,7 @@ const Register = () => {
                 name="password"
                 id=""
                 placeholder="Enter your Password"
-                className="focus:placeholder-gray-50 h-14 w-full bg-transparent border-4 p-6 pl-14 bg-none text-white border-[#5C6BC0] rounded-2xl"
+                className="placeholder:text-white h-14 w-full bg-transparent border-4 p-6 pl-14 bg-none text-white border-[#5C6BC0] rounded-2xl"
                 required
               />
               <span className="absolute right-5 text-white text-2xl top-4">
