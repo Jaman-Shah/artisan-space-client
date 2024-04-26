@@ -23,7 +23,7 @@ const NavBar = () => {
   };
   // reuseable classes and nav links for the navbar items
   const activeClass = ({ isActive }) =>
-    `py-3 px-4 text-white hover:text-red-400 hover:rounded-xl  transition ease-in-out delay-150  ${
+    `py-3 px-4 hover:text-red-400 hover:rounded-xl  transition ease-in-out delay-150  ${
       isActive ? "text-red-400" : ""
     }`;
 
@@ -89,7 +89,9 @@ const NavBar = () => {
           Artisan Space
         </Link>
       </div>
-      <div className="navbar-center hidden lg:flex">{links("horizontal")}</div>
+      <div className="navbar-center justify-end hidden lg:flex">
+        {links("horizontal")}
+      </div>
       <div className="navbar-end">
         {user ? (
           <div className="flex items-center gap-4">
