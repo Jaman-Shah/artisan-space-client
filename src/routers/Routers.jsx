@@ -10,6 +10,7 @@ import ArtAndCraft from "../components/ArtAndCraft/ArtAndCraft";
 import AddCraft from "../components/AddCraft/AddCraft";
 import MyArtAndCraft from "./../components/MyArtAndCraft/MyArtAndCraft";
 import Login from "../components/Login/Login";
+import Register from "../components/Register/Register";
 export const routers = createBrowserRouter([
   {
     path: "/",
@@ -34,6 +35,10 @@ export const routers = createBrowserRouter([
       {
         path: "/login",
         element: <Login />,
+      },
+      {
+        path: "/register",
+        element: <Register />,
       },
     ],
   },
