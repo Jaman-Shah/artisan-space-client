@@ -5,4 +5,8 @@ export default {
     extend: {},
   },
   plugins: [require("daisyui")],
+  daisyui: {
+    // Other DaisyUI options...
+    exclude: ["form", "input"],
+  }, // <-- Add closing bracket here
 };

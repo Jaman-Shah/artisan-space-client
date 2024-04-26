@@ -1,7 +1,7 @@
 import React from "react";
 
 const AddCraft = () => {
-  return <div>this is add craft</div>;
+  return <div>hi</div>;
 };
 
 export default AddCraft;

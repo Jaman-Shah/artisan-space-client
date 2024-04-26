@@ -9,6 +9,7 @@ import Home from "../components/Home/Home";
 import ArtAndCraft from "../components/ArtAndCraft/ArtAndCraft";
 import AddCraft from "../components/AddCraft/AddCraft";
 import MyArtAndCraft from "./../components/MyArtAndCraft/MyArtAndCraft";
+import Login from "../components/Login/Login";
 export const routers = createBrowserRouter([
   {
     path: "/",
@@ -29,6 +30,10 @@ export const routers = createBrowserRouter([
       {
         path: "/myartandcraft",
         element: <MyArtAndCraft />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
       },
     ],
   },
