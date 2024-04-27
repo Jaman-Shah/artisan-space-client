@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
+import { toast } from "react-toastify";
 
 const AddCraft = () => {
   const { user } = useContext(AuthContext);
@@ -27,6 +28,19 @@ const AddCraft = () => {
     e.preventDefault();
     // adding your logic to handle form submission
     console.log(formData);
+    fetch("http://localhost:5003/createcrafts", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.acknowledged) {
+          toast.success("Craft Added");
+        }
+      });
   };
 
   // making form inputs data structure

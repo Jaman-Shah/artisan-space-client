@@ -43,8 +43,8 @@ const NavBar = () => {
         <NavLink to="/" className={activeClass}>
           HOME
         </NavLink>
-        <NavLink to="/artandcraft" className={activeClass}>
-          ART ADN CRAFT
+        <NavLink to="/allartandcraft" className={activeClass}>
+          ALL ART ADN CRAFT
         </NavLink>
         <NavLink to="/addcraft" className={activeClass}>
           ADD CRAFT
