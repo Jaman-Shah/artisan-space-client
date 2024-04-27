@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 const AllArtAndCraft = () => {
   const loadedCrafts = useLoaderData();
@@ -43,9 +43,12 @@ const AllArtAndCraft = () => {
                     {item.rating}
                   </td>
                   <td className=" px-4 py-2 text-end">
-                    <button className="border-2 border-gray-500 text-black bg-transparent  hover:bg-green-400 hover:border-green-500 transition duration-500  px-4 py-2 rounded">
+                    <Link
+                      to={`/craftdetails/${item._id}`}
+                      className="border-2 border-gray-500 text-black bg-transparent  hover:bg-green-400 hover:border-green-500 transition duration-500  px-4 py-2 rounded"
+                    >
                       View Details
-                    </button>
+                    </Link>
                   </td>
                 </tr>
               ))}
