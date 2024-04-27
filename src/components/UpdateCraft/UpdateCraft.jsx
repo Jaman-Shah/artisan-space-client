@@ -1,52 +1,50 @@
-import React, { useContext, useState } from "react";
-import { AuthContext } from "../../providers/AuthProvider";
+import { useContext, useState } from "react";
+import { useLoaderData } from "react-router-dom";
 import { toast } from "react-toastify";
 
-const AddCraft = () => {
-  const { user } = useContext(AuthContext);
+const UpdateCraft = () => {
+  // loading information which should be updated
+  const loadedCraft = useLoaderData();
+  const {
+    image,
+    item_name,
+    subcategory_name,
+    short_description,
+    price,
+    rating,
+    customization,
+    processing_time,
+    stock_status,
+  } = loadedCraft;
 
   // initializing form input values state with empty values
   const [formData, setFormData] = useState({
-    image: "",
-    item_name: "",
-    subcategory_name: "",
-    short_description: "",
-    price: "",
-    rating: "",
-    customization: "",
-    processing_time: "",
-    stock_status: "",
-    user_email: user.email,
-    user_name: user.displayName,
+    image: image,
+    item_name: item_name,
+    subcategory_name: subcategory_name,
+    short_description: short_description,
+    price: price,
+    rating: rating,
+    customization: customization,
+    processing_time: processing_time,
+    stock_status: stock_status,
   });
 
   const handleChange = (e) => {
+    // keeping the previous data and updating the states
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleUpdate = (e) => {
     e.preventDefault();
 
     console.log(formData);
-    fetch("http://localhost:5003/createcrafts", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.acknowledged) {
-          toast.success("Craft Added");
-        }
-      });
   };
 
+  // structure of the input fields for decreasing code duplication
   const formInputs = [
     { name: "image", label: "Image URL", type: "text" },
     { name: "item_name", label: "Item Name", type: "text" },
-
     {
       name: "subcategory_name",
       label: "Subcategory Name",
@@ -63,7 +61,6 @@ const AddCraft = () => {
     { name: "short_description", label: "Short Description", type: "text" },
     { name: "price", label: "Price", type: "number" },
     { name: "rating", label: "Rating", type: "number" },
-
     {
       name: "customization",
       label: "Customization",
@@ -71,15 +68,12 @@ const AddCraft = () => {
       options: ["Yes", "No"],
     },
     { name: "processing_time", label: "Processing Time", type: "text" },
-
     {
       name: "stock_status",
       label: "Stock Status",
       type: "dropdown",
       options: ["In Stock", "Made to Order"],
     },
-    { name: "user_email", label: "User Email", type: "email", disabled: true }, // Added disabled attribute
-    { name: "user_name", label: "User Name", type: "text", disabled: true }, // Added disabled attribute
   ];
 
   return (
@@ -88,7 +82,7 @@ const AddCraft = () => {
         Add Craft Item
       </h1>
       <form
-        onSubmit={handleSubmit}
+        onSubmit={handleUpdate}
         className="grid grid-cols-1 md:grid-cols-3 gap-4"
       >
         {formInputs.map((input) => (
@@ -117,20 +111,22 @@ const AddCraft = () => {
                 value={formData[input.name]}
                 onChange={handleChange}
                 className="w-full px-3 py-2 border rounded"
-                disabled={input.disabled} // Added disabled attribute
+                disabled={input.disabled}
               />
             )}
           </div>
         ))}
-        <button
-          type="submit"
-          className=" bg-blue-500 hover:bg-red-400 transition duration-500 text-white  md:h-1/2 mt-0 md:mt-7 px-4 py-2 rounded"
-        >
-          Add
-        </button>
+        <div className="flex col-span-3 justify-center">
+          <button
+            type="submit"
+            className=" bg-blue-500 hover:bg-red-400 transition duration-500 text-white  w-1/2 mt-0 md:mt-7 px-4 py-2 rounded"
+          >
+            Update
+          </button>
+        </div>
       </form>
     </div>
   );
 };
 
-export default AddCraft;
+export default UpdateCraft;

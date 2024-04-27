@@ -2,6 +2,7 @@ import React from "react";
 import { RiMoneyDollarCircleLine } from "react-icons/ri";
 import { MdOutlineStarRate } from "react-icons/md";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const IndividualCraftCard = ({ craft, setLoadedCrafts, loadedCrafts }) => {
   const {
@@ -75,9 +76,12 @@ const IndividualCraftCard = ({ craft, setLoadedCrafts, loadedCrafts }) => {
         <p>Stoke Status : {stock_status}</p>
       </div>
       <div className="flex justify-center gap-5 my-4">
-        <button className="bg-green-600 p-3 rounded-3xl text-white hover:bg-orange-400">
+        <Link
+          to={`/updatecraft/${_id}`}
+          className="bg-green-600 p-3 rounded-3xl text-white hover:bg-orange-400"
+        >
           Update
-        </button>
+        </Link>
         <button
           onClick={() => handleCardDelete(_id)}
           className="bg-red-600 p-3 rounded-3xl text-white hover:bg-orange-400"
