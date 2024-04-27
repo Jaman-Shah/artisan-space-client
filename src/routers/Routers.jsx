@@ -12,6 +12,7 @@ import Login from "../components/Login/Login";
 import Register from "../components/Register/Register";
 import PrivateRoute from "./PrivateRoute";
 import AllArtAndCraft from "../components/AllArtCraft/AllArtCraft";
+import CraftDetails from "../components/CraftDetails/CraftDetails";
 export const routers = createBrowserRouter([
   {
     path: "/",
@@ -41,6 +42,10 @@ export const routers = createBrowserRouter([
             <MyArtAndCraft />
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/craftdetails/:id",
+        element: <CraftDetails />,
       },
       {
         path: "/login",

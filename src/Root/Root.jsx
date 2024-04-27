@@ -13,7 +13,7 @@ import Footer from "../components/Footer/Footer";
 
 const Root = () => {
   return (
-    <div>
+    <div className="bg-blue-100">
       <NavBar />
       <Outlet />
       <Footer />

@@ -5,7 +5,7 @@ const AllArtAndCraft = () => {
 
   console.log(loadedCrafts);
   return (
-    <div className="bg-green-100 py-8">
+    <div className="py-8">
       <div className="max-w-4xl mx-auto ">
         <h1 className="text-4xl font-bold mb-4 text-center">
           All <span className="text-orange-500">Art </span>& Craft{" "}
