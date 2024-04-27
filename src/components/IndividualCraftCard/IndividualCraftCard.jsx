@@ -1,6 +1,7 @@
 import React from "react";
 import { RiMoneyDollarCircleLine } from "react-icons/ri";
 import { MdOutlineStarRate } from "react-icons/md";
+import Swal from "sweetalert2";
 
 const IndividualCraftCard = ({ craft, setLoadedCrafts, loadedCrafts }) => {
   const {
@@ -15,18 +16,36 @@ const IndividualCraftCard = ({ craft, setLoadedCrafts, loadedCrafts }) => {
     subcategory_name,
   } = craft;
 
-  const handleCardDelete = () => {
-    fetch(`http://localhost:5003/crafts/${_id}`, {
-      method: "DELETE",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        const remainingCrafts = loadedCrafts.filter(
-          (filteredCraft) => filteredCraft._id !== _id
-        );
-        setLoadedCrafts(remainingCrafts);
-      });
+  const handleCardDelete = (_id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "Do you Want to delete this?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Confirm ",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Swal.fire({
+        //   title: "Deleted!",
+        //   text: "Your file has been deleted.",
+        //   icon: "success",
+        // });
+
+        fetch(`http://localhost:5003/crafts/${_id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            const remainingCrafts = loadedCrafts.filter(
+              (filteredCraft) => filteredCraft._id !== _id
+            );
+            setLoadedCrafts(remainingCrafts);
+          });
+      }
+    });
   };
   return (
     <div className="p-4 shadow-xl rounded-3xl  ">
@@ -60,7 +79,7 @@ const IndividualCraftCard = ({ craft, setLoadedCrafts, loadedCrafts }) => {
           Update
         </button>
         <button
-          onClick={handleCardDelete}
+          onClick={() => handleCardDelete(_id)}
           className="bg-red-600 p-3 rounded-3xl text-white hover:bg-orange-400"
         >
           Delete
