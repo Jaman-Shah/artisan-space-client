@@ -52,29 +52,36 @@ const Slider = () => {
   return (
     <div className="overflow-hidden h-screen relative bg-black">
       <div
-        className={`flex transition ease-out duration-1000`}
+        className={`flex  transition ease-out duration-1000`}
         style={{
           transform: `translateX(-${current * 100}%)`,
         }}
       >
         {slides.map((slide) => {
           const { id, image, craftTitle, description } = slide;
-          return <img src={image} alt="" srcset="" />;
+          return (
+            <img
+              src={image}
+              alt=""
+              srcset=""
+              className="w-full h-screen md:h-full"
+            />
+          );
         })}
       </div>
 
-      <div className="absolute p-4 top-0 h-full w-full justify-between items-center flex text-white px-10 text-3xl">
-        <div className="absolute top-2  md:top-20 border-l-[15px] md:border-l-[24px] border-blue-500 p-2 md:p-4">
-          <div className="font-semibold md:font-extrabold text-2xl md:text-[70px] flex flex-col gap-2 md:gap-10 mb-6 ">
+      <div className="absolute  p-4 top-10 h-full w-full justify-between items-center flex text-white px-10 text-3xl">
+        <div className="absolute  top-2  md:top-20 border-l-[15px] md:border-l-[24px] border-blue-500 p-4">
+          <div className="font-semibold md:font-extrabold text-3xl md:text-[70px] flex flex-col gap-2 md:gap-10 mb-6 ">
             <h1> Find Best Art and Crafts</h1>
             <h1>Products From Our Store</h1>
           </div>
-          <p className="text-xs md:text-3xl">
+          <p className="text-lg md:text-3xl">
             Our Aim is to provide the best services to the customer,
             <br />
             There are lots of customer who are satisfied with our services
           </p>
-          <div className="flex text-xs md:text-xl mt-4 gap-2">
+          <div className="flex z-10 text-xs md:text-xl mt-4 gap-2">
             <button className="border p-1 md:p-4 hover:border-none hover:bg-green-500 transition duration-500">
               Contact Us
             </button>
@@ -84,7 +91,7 @@ const Slider = () => {
           </div>
         </div>
         <div
-          className="absolute right-3 bottom-[320px]
+          className="absolute bottom-[150px] right-1/3
           md:right-[150px] flex  md:flex-col gap-2 "
         >
           <button
@@ -102,7 +109,7 @@ const Slider = () => {
         </div>
       </div>
 
-      <div className="absolute hidden md:bottom-40 py-4 md:flex justify-center gap-3 w-full">
+      <div className="absolute hidden md:bottom-20 py-4 md:flex justify-center gap-3 w-full">
         {slides.map((s, i) => {
           return (
             <div
