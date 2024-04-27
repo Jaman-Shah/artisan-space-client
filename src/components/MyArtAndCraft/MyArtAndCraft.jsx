@@ -5,7 +5,7 @@ import IndividualCraftCard from "../IndividualCraftCard/IndividualCraftCard";
 const MyArtAndCraft = () => {
   const { user } = useContext(AuthContext);
   console.log(user.email);
-  const [loadedCrafts, setLoadedCrafts] = useState();
+  const [loadedCrafts, setLoadedCrafts] = useState([]);
   console.log(loadedCrafts);
 
   // loading the crafts based on email
@@ -32,7 +32,14 @@ const MyArtAndCraft = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {loadedCrafts &&
           loadedCrafts.map((craft) => {
-            return <IndividualCraftCard key={craft._id} craft={craft} />;
+            return (
+              <IndividualCraftCard
+                key={craft._id}
+                craft={craft}
+                loadedCrafts={loadedCrafts}
+                setLoadedCrafts={setLoadedCrafts}
+              />
+            );
           })}
       </div>
     </div>

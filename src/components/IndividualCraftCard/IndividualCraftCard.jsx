@@ -2,8 +2,9 @@ import React from "react";
 import { RiMoneyDollarCircleLine } from "react-icons/ri";
 import { MdOutlineStarRate } from "react-icons/md";
 
-const IndividualCraftCard = ({ craft }) => {
+const IndividualCraftCard = ({ craft, setLoadedCrafts, loadedCrafts }) => {
   const {
+    _id,
     customization,
     image,
     item_name,
@@ -12,8 +13,21 @@ const IndividualCraftCard = ({ craft }) => {
     short_description,
     stock_status,
     subcategory_name,
-    user_email,
   } = craft;
+
+  const handleCardDelete = () => {
+    fetch(`http://localhost:5003/crafts/${_id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        const remainingCrafts = loadedCrafts.filter(
+          (filteredCraft) => filteredCraft._id !== _id
+        );
+        setLoadedCrafts(remainingCrafts);
+      });
+  };
   return (
     <div className="p-4 shadow-xl rounded-3xl  ">
       <div>
@@ -45,7 +59,10 @@ const IndividualCraftCard = ({ craft }) => {
         <button className="bg-green-600 p-3 rounded-3xl text-white hover:bg-orange-400">
           Update
         </button>
-        <button className="bg-red-600 p-3 rounded-3xl text-white hover:bg-orange-400">
+        <button
+          onClick={handleCardDelete}
+          className="bg-red-600 p-3 rounded-3xl text-white hover:bg-orange-400"
+        >
           Delete
         </button>
       </div>
