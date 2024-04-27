@@ -6,6 +6,7 @@ const UpdateCraft = () => {
   // loading information which should be updated
   const loadedCraft = useLoaderData();
   const {
+    _id,
     image,
     item_name,
     subcategory_name,
@@ -37,6 +38,17 @@ const UpdateCraft = () => {
 
   const handleUpdate = (e) => {
     e.preventDefault();
+    fetch(`http://localhost:5003/updatecraft/${_id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
 
     console.log(formData);
   };
@@ -116,7 +128,7 @@ const UpdateCraft = () => {
             )}
           </div>
         ))}
-        <div className="flex col-span-3 justify-center">
+        <div className="flex md:col-span-3 justify-center">
           <button
             type="submit"
             className=" bg-blue-500 hover:bg-red-400 transition duration-500 text-white  w-1/2 mt-0 md:mt-7 px-4 py-2 rounded"
