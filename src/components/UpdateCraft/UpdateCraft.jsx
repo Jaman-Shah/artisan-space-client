@@ -1,8 +1,11 @@
 import { useContext, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const UpdateCraft = () => {
+  // importing navigate function
+
+  const navigate = useNavigate();
   // loading information which should be updated
   const loadedCraft = useLoaderData();
   const {
@@ -47,10 +50,11 @@ const UpdateCraft = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        if (data.acknowledged) {
+          toast.success("Updated Successfully");
+          navigate("/myartandcraft");
+        }
       });
-
-    console.log(formData);
   };
 
   // structure of the input fields for decreasing code duplication

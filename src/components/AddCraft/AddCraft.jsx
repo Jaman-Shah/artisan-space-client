@@ -27,7 +27,6 @@ const AddCraft = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log(formData);
     fetch("http://localhost:5003/createcrafts", {
       method: "POST",
       headers: {

@@ -4,9 +4,8 @@ import IndividualCraftCard from "../IndividualCraftCard/IndividualCraftCard";
 
 const MyArtAndCraft = () => {
   const { user } = useContext(AuthContext);
-  console.log(user.email);
+
   const [loadedCrafts, setLoadedCrafts] = useState([]);
-  console.log(loadedCrafts);
 
   // loading the crafts based on email
   const loadCrafts = async () => {

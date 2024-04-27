@@ -39,7 +39,6 @@ const IndividualCraftCard = ({ craft, setLoadedCrafts, loadedCrafts }) => {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
             const remainingCrafts = loadedCrafts.filter(
               (filteredCraft) => filteredCraft._id !== _id
             );

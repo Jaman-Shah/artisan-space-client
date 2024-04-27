@@ -20,8 +20,8 @@ const CraftDetails = () => {
   console.log(loadedCraft);
   return (
     <div className="container mx-auto p-20">
-      <div className="relative shadow-xl rounded-xl bg-white pl-52 border-2 p-8">
-        <h1 className=" text-4xl font-extrabold text-center">{item_name}</h1>
+      <div className="relative shadow-xl rounded-xl bg-white pl-72 border-2 p-8">
+        <h1 className=" text-4xl font-extrabold  mb-4">{item_name}</h1>
         <p className="font-bold text-green-500 text-xl">{stock_status}</p>
         <p className="text-[80px] text-yellow-400">{price} $</p>
         <p className="font-bold mb-2">Category:{subcategory_name}</p>
