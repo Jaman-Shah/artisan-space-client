@@ -42,10 +42,10 @@ const AllArtAndCraft = () => {
                   <td className="border-r-2 border-black px-4 py-2 text-center">
                     {item.rating}
                   </td>
-                  <td className=" px-4 py-2 text-end">
+                  <td className=" text-center">
                     <Link
                       to={`/craftdetails/${item._id}`}
-                      className="border-2 border-gray-500 text-black bg-transparent  hover:bg-green-400 hover:border-green-500 transition duration-500  px-4 py-2 rounded"
+                      className="border-2 border-gray-500 md:p-2  text-black bg-transparent  hover:bg-green-400 hover:border-green-500 transition duration-500  rounded"
                     >
                       View Details
                     </Link>
