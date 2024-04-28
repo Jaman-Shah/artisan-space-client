@@ -14,10 +14,12 @@ import PrivateRoute from "./PrivateRoute";
 import AllArtAndCraft from "../components/AllArtCraft/AllArtCraft";
 import CraftDetails from "../components/CraftDetails/CraftDetails";
 import UpdateCraft from "../components/UpdateCraft/UpdateCraft";
+import ErrorPage from "../components/ErrorPage/ErrorPage";
 export const routers = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
