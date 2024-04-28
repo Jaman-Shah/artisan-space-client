@@ -9,10 +9,12 @@ const Home = () => {
   return (
     <div>
       <Slider />
-      <CraftItemsSection />
-      <CraftCategories />
-      <ContactSection />
-      <PaymentMethodSection />
+      <div className="px-4">
+        <CraftItemsSection />
+        <CraftCategories />
+        <ContactSection />
+        <PaymentMethodSection />
+      </div>
     </div>
   );
 };

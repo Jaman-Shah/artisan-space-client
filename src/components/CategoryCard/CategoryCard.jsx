@@ -13,11 +13,7 @@ const CategoryCard = ({ category }) => {
   return (
     <div className="p-4 shadow-xl rounded-3xl bg-[#1AB7EA] border-2 border-white">
       <div>
-        <img
-          src="https://d3h2k7ug3o5pb3.cloudfront.net/image/2020-12-04/57eabbb0-3610-11eb-bcbe-7daa1ab28fd4.jpg"
-          alt=""
-          className="w-full  rounded-3xl mb-4"
-        />
+        <img src={image} alt="" className="w-full h-52 rounded-3xl mb-4" />
       </div>
       <div className="text-center ">
         <h3 className="font-bold text-3xl text-orange-500">

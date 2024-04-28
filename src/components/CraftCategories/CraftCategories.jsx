@@ -18,8 +18,6 @@ const CraftCategories = () => {
     loadCategories();
   }, []);
 
-  console.log(categories);
-
   return (
     <div>
       <div className="my-16 text-center px-12">
