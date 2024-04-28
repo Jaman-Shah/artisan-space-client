@@ -44,11 +44,11 @@ const Slider = () => {
 
       <div className="absolute p-4 top-10 h-full w-full justify-between items-center flex text-white px-10 text-3xl">
         <div className="absolute top-2 md:top-20 border-l-[15px] md:border-l-[24px] border-blue-500 p-4">
-          <div className="font-semibold md:font-extrabold text-3xl md:text-[70px] flex flex-col gap-2 md:gap-10 mb-6 ">
+          <div className="font-semibold md:font-extrabold text-3xl lg:text-[70px] flex flex-col gap-2 md:gap-10 lg:mb-6 ">
             <h1> Find Best Art and Crafts</h1>
             <h1>Products From Our Store</h1>
           </div>
-          <p className="text-lg md:text-3xl">
+          <p className="text-lg lg:text-3xl">
             Our Aim is to provide the best services to the customer,
             <br />
             There are lots of customers who are satisfied with our services
