@@ -27,6 +27,7 @@ const AddCraft = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    // fetch url for storing data to database
     fetch("http://localhost:5003/createcrafts", {
       method: "POST",
       headers: {
@@ -41,6 +42,8 @@ const AddCraft = () => {
         }
       });
   };
+
+  // making form basic structure for decreasing code duplication
 
   const formInputs = [
     { name: "image", label: "Image URL", type: "text" },
@@ -77,14 +80,15 @@ const AddCraft = () => {
       type: "dropdown",
       options: ["In Stock", "Made to Order"],
     },
-    { name: "user_email", label: "User Email", type: "email", disabled: true }, // Added disabled attribute
-    { name: "user_name", label: "User Name", type: "text", disabled: true }, // Added disabled attribute
+    { name: "user_email", label: "User Email", type: "email", disabled: true },
+    { name: "user_name", label: "User Name", type: "text", disabled: true },
   ];
 
   return (
-    <div className="p-4 mx-auto  bg-[url('https://i.ibb.co/wKYxG7J/add-art.jpg')] bg-center bg-cover">
+    <div className="p-4 mx-auto  ">
       <h1 className="text-4xl font-extrabold mb-4 text-center">
-        Add Craft Item
+        <span className="text-blue-500"> Add Craft</span>{" "}
+        <span className="text-red-500">Item</span>
       </h1>
       <form
         onSubmit={handleSubmit}
@@ -92,7 +96,7 @@ const AddCraft = () => {
       >
         {formInputs.map((input) => (
           <div key={input.name} className="mb-4">
-            <label className="block text-white mb-1 font-bold">
+            <label className="block text-black mb-1 font-bold">
               {input.label}:
             </label>
             {input.type === "dropdown" ? (
@@ -100,7 +104,8 @@ const AddCraft = () => {
                 name={input.name}
                 value={formData[input.name]}
                 onChange={handleChange}
-                className="w-full px-3 py-2 border rounded"
+                className="w-full px-3 py-2 border-2 border-black rounded"
+                required
               >
                 <option value="">Select {input.label}</option>
                 {input.options.map((option) => (
@@ -115,15 +120,16 @@ const AddCraft = () => {
                 name={input.name}
                 value={formData[input.name]}
                 onChange={handleChange}
-                className="w-full px-3 py-2 border rounded"
-                disabled={input.disabled} // Added disabled attribute
+                className="w-full px-3 py-2 border-2 border-black rounded"
+                disabled={input.disabled}
+                required
               />
             )}
           </div>
         ))}
         <button
           type="submit"
-          className=" bg-blue-500 hover:bg-red-400 transition duration-500 text-white  md:h-1/2 mt-0 md:mt-7 px-4 py-2 rounded"
+          className=" bg-blue-500 hover:bg-red-400 transition duration-500 text-black  md:h-1/2 mt-0 md:mt-7 px-4 py-2 rounded"
         >
           Add
         </button>
