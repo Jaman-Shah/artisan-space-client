@@ -66,8 +66,9 @@ const MyArtAndCraft = () => {
           <IndividualCraftCard
             key={craft._id}
             craft={craft}
-            loadedCrafts={loadedCrafts}
+            filteredCrafts={filteredCrafts}
             setLoadedCrafts={setLoadedCrafts}
+            setFilteredCrafts={setFilteredCrafts}
           />
         ))}
       </div>

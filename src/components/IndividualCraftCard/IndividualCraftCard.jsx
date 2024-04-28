@@ -4,7 +4,12 @@ import { MdOutlineStarRate } from "react-icons/md";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 
-const IndividualCraftCard = ({ craft, setLoadedCrafts, loadedCrafts }) => {
+const IndividualCraftCard = ({
+  craft,
+  setLoadedCrafts,
+  filteredCrafts,
+  setFilteredCrafts,
+}) => {
   const {
     _id,
     customization,
@@ -39,9 +44,10 @@ const IndividualCraftCard = ({ craft, setLoadedCrafts, loadedCrafts }) => {
         })
           .then((res) => res.json())
           .then((data) => {
-            const remainingCrafts = loadedCrafts.filter(
-              (filteredCraft) => filteredCraft._id !== _id
+            const remainingCrafts = filteredCrafts.filter(
+              (filtered) => filtered._id !== _id
             );
+            setFilteredCrafts(remainingCrafts);
             setLoadedCrafts(remainingCrafts);
           });
       }
