@@ -87,18 +87,12 @@ const Register = () => {
     }
   };
   return (
-    <div
-      style={{
-        backgroundImage:
-          "url('https://i.ibb.co/5x5Rjcw/scissor-jute-string-wrapped-gift-box-brown-paper.jpg')",
-        bgOpacity: "0.5",
-      }}
-      className="bg-right-top bg-cover bg-no-repeat p-4 flex flex-col md:flex-row justify-between"
-    >
+    <div className="bg-right-top bg-cover bg-no-repeat p-4 flex flex-col md:flex-row justify-between">
       {/* login left side  */}
       <div className="w-full md:w-1/2 p-12 md:p-6">
-        <h1 className="font-extrabold text-6xl text-white text-center my-4 text-">
-          Register Here :
+        <h1 className="font-extrabold text-6xl text-black text-center my-4 text-">
+          <span className="text-blue-500">Register</span>{" "}
+          <span className="text-orange-500">Here :</span>
         </h1>
         <form onSubmit={handleRegister} className="flex gap-4 flex-col ">
           <div className="relative">
@@ -108,7 +102,7 @@ const Register = () => {
                 type="text"
                 name="name"
                 placeholder="Enter your Name"
-                className="placeholder:text-white h-14 w-full bg-transparent border-4 p-6 pl-14 bg-none text-white border-[#5C6BC0] rounded-2xl"
+                className="placeholder:text-black h-14 w-full bg-transparent border-4 p-6 pl-14 bg-none text-black border-[#5C6BC0] rounded-2xl"
                 required
               />
             </div>
@@ -120,7 +114,7 @@ const Register = () => {
                 type="email"
                 name="email"
                 placeholder="Enter your Email"
-                className="placeholder:text-white h-14 w-full bg-transparent border-4 p-6 pl-14 bg-none text-white border-[#5C6BC0] rounded-2xl"
+                className="placeholder:text-black h-14 w-full bg-transparent border-4 p-6 pl-14 bg-none text-black border-[#5C6BC0] rounded-2xl"
                 required
               />
             </div>
@@ -132,7 +126,7 @@ const Register = () => {
                 type="text"
                 name="photo_url"
                 placeholder="Enter your Photo Url"
-                className="placeholder:text-white h-14 w-full bg-transparent border-4 p-6 pl-14 bg-none text-white border-[#5C6BC0] rounded-2xl"
+                className="placeholder:text-black h-14 w-full bg-transparent border-4 p-6 pl-14 bg-none text-black border-[#5C6BC0] rounded-2xl"
                 required
               />
             </div>
@@ -144,10 +138,10 @@ const Register = () => {
                 type={eyeOpen ? "text" : "password"}
                 name="password"
                 placeholder="Enter your Password"
-                className="placeholder:text-white h-14 w-full bg-transparent border-4 p-6 pl-14 bg-none text-white border-[#5C6BC0] rounded-2xl"
+                className="placeholder:text-black h-14 w-full bg-transparent border-4 p-6 pl-14 bg-none text-black border-[#5C6BC0] rounded-2xl"
                 required
               />
-              <span className="absolute right-5 text-white text-2xl top-4">
+              <span className="absolute right-5 text-black text-2xl top-4">
                 {eyeOpen ? (
                   <BsFillEyeFill onClick={() => setEyeOpen(false)} />
                 ) : (
@@ -156,16 +150,16 @@ const Register = () => {
               </span>
             </div>
           </div>
-          <div className="flex gap-6  border-b-2 border-white py-4 font-extrabold">
-            <h3 className="text-white">Already have an account?</h3>
+          <div className="flex gap-6  border-b-2 border-black py-4 font-extrabold">
+            <h3 className="text-black">Already have an account?</h3>
             <Link
               to="/login"
-              className="border-b-2 text-white hover:text-blue-500 hover:border-blue-500"
+              className="border-b-2 text-black hover:text-blue-500 hover:border-blue-500"
             >
               Login
             </Link>
           </div>
-          <button className="btn bg-[#3D5AFE] hover:bg-green-500 transition duration-500 text-white border-2 w-full border-none  p-4">
+          <button className="border-2 border-[#3D5AFE] text-black hover:bg-[#3D5AFE]  transition duration-700  w-full  p-4">
             Register
           </button>
         </form>
