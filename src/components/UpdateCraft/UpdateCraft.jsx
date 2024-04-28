@@ -1,4 +1,5 @@
 import { useContext, useState } from "react";
+import { Slide } from "react-awesome-reveal";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
@@ -97,52 +98,54 @@ const UpdateCraft = () => {
         <span className="text-blue-500"> Update</span> Craft{" "}
         <span className="text-red-500">Item</span>
       </h1>
-      <form
-        onSubmit={handleUpdate}
-        className="grid grid-cols-1 md:grid-cols-3 gap-4"
-      >
-        {formInputs.map((input) => (
-          <div key={input.name} className="mb-4">
-            <label className="block text-black mb-1 font-bold">
-              {input.label}:
-            </label>
-            {input.type === "dropdown" ? (
-              <select
-                name={input.name}
-                value={formData[input.name]}
-                onChange={handleChange}
-                className="w-full px-3 py-2 border-2 border-black rounded"
-                required
-              >
-                <option value="">Select {input.label}</option>
-                {input.options.map((option) => (
-                  <option key={option} value={option}>
-                    {option}
-                  </option>
-                ))}
-              </select>
-            ) : (
-              <input
-                type={input.type}
-                name={input.name}
-                value={formData[input.name]}
-                onChange={handleChange}
-                className="w-full px-3 py-2 border-2 border-black rounded"
-                disabled={input.disabled}
-                required
-              />
-            )}
+      <Slide direction="left">
+        <form
+          onSubmit={handleUpdate}
+          className="grid grid-cols-1 md:grid-cols-3 gap-4"
+        >
+          {formInputs.map((input) => (
+            <div key={input.name} className="mb-4">
+              <label className="block text-black mb-1 font-bold">
+                {input.label}:
+              </label>
+              {input.type === "dropdown" ? (
+                <select
+                  name={input.name}
+                  value={formData[input.name]}
+                  onChange={handleChange}
+                  className="w-full px-3 py-2 border-2 border-black rounded"
+                  required
+                >
+                  <option value="">Select {input.label}</option>
+                  {input.options.map((option) => (
+                    <option key={option} value={option}>
+                      {option}
+                    </option>
+                  ))}
+                </select>
+              ) : (
+                <input
+                  type={input.type}
+                  name={input.name}
+                  value={formData[input.name]}
+                  onChange={handleChange}
+                  className="w-full px-3 py-2 border-2 border-black rounded"
+                  disabled={input.disabled}
+                  required
+                />
+              )}
+            </div>
+          ))}
+          <div className="flex md:col-span-3 justify-center">
+            <button
+              type="submit"
+              className=" bg-blue-500 hover:bg-red-400 transition duration-500 text-black  w-1/2 mt-0 md:mt-7 px-4 py-2 rounded"
+            >
+              Update
+            </button>
           </div>
-        ))}
-        <div className="flex md:col-span-3 justify-center">
-          <button
-            type="submit"
-            className=" bg-blue-500 hover:bg-red-400 transition duration-500 text-black  w-1/2 mt-0 md:mt-7 px-4 py-2 rounded"
-          >
-            Update
-          </button>
-        </div>
-      </form>
+        </form>
+      </Slide>
     </div>
   );
 };

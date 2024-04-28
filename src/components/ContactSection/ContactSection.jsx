@@ -1,10 +1,11 @@
 import React from "react";
+import { Slide } from "react-awesome-reveal";
 
 const ContactSection = () => {
   return (
     <div className=" my-8 md:flex items-center">
       {/* left side  */}
-      <div className="md:w-1/2">
+      <Slide className="md:w-1/2">
         <div>
           <img
             src="https://i.ibb.co/TwQSM9w/maxresdefault.jpg"
@@ -13,10 +14,13 @@ const ContactSection = () => {
             className="w-full"
           />
         </div>
-      </div>
+      </Slide>
 
       {/* right side  */}
-      <div className="md:w-1/2 shadow-2xl md:rounded-2xl  bg-[#34495E] p-4">
+      <Slide
+        direction="right"
+        className="md:w-1/2 shadow-2xl md:rounded-2xl  bg-[#34495E] p-4"
+      >
         <div>
           <h1 className="font-extrabold text-3xl my-2 text-orange-400">
             Contact <span className="text-green-500">With Us</span> :
@@ -65,7 +69,7 @@ const ContactSection = () => {
             Send Message
           </button>
         </div>
-      </div>
+      </Slide>
     </div>
   );
 };

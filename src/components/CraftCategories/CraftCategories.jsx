@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import CategoryCard from "../CategoryCard/CategoryCard";
+import { Fade } from "react-awesome-reveal";
 
 const CraftCategories = () => {
   const [categories, setCategories] = useState([]);
@@ -20,15 +21,19 @@ const CraftCategories = () => {
 
   return (
     <div>
-      <div className="my-16 text-center px-12">
-        <div class="divider divider-warning">
-          <h3 className="font-extrabold text-3xl">
-            Our <span className="text-red-500">Best </span>
-            <span className="text-green-500">Categories</span>
-          </h3>
+      <Fade>
+        <div className="my-16 text-center px-12">
+          <div class="divider divider-warning">
+            <h3 className="font-extrabold text-3xl">
+              Our
+              <span className="text-red-500">Best</span>
+              <span className="text-green-500">Categories</span>
+            </h3>
+          </div>
+          <p></p>
         </div>
-        <p></p>
-      </div>
+      </Fade>
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {categories &&
           categories.map((category) => {

@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import { toast } from "react-toastify";
+import { Slide } from "react-awesome-reveal";
 
 const AddCraft = () => {
   const { user } = useContext(AuthContext);
@@ -85,7 +86,7 @@ const AddCraft = () => {
   ];
 
   return (
-    <div className="p-4 mx-auto  ">
+    <Slide direction="right" className="p-4 mx-auto  ">
       <h1 className="text-4xl font-extrabold mb-4 text-center">
         <span className="text-blue-500"> Add Craft</span>{" "}
         <span className="text-red-500">Item</span>
@@ -134,7 +135,7 @@ const AddCraft = () => {
           Add
         </button>
       </form>
-    </div>
+    </Slide>
   );
 };
 
