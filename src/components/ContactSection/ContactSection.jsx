@@ -21,7 +21,7 @@ const ContactSection = () => {
           <h1 className="font-extrabold text-3xl my-2 text-orange-400">
             Contact <span className="text-green-500">With Us</span> :
           </h1>
-          <div className="grid grid-cols-2 gap-2">
+          <div className="grid md:grid-cols-2 gap-4 md:gap-2">
             <div className="">
               <input
                 type="text"

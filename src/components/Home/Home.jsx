@@ -3,6 +3,7 @@ import Slider from "../Slider/Slider";
 import CraftItemsSection from "../CraftItemsSection/CraftItemsSection";
 import Footer from "../Footer/Footer";
 import ContactSection from "../ContactSection/ContactSection";
+import PaymentMethodSection from "../PaymentMethodSection/PaymentMethodSection";
 
 const Home = () => {
   return (
@@ -10,6 +11,7 @@ const Home = () => {
       <Slider />
       <CraftItemsSection />
       <ContactSection />
+      <PaymentMethodSection />
     </div>
   );
 };
