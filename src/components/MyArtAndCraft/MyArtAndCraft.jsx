@@ -67,6 +67,7 @@ const MyArtAndCraft = () => {
             key={craft._id}
             craft={craft}
             filteredCrafts={filteredCrafts}
+            loadedCrafts={loadedCrafts}
             setLoadedCrafts={setLoadedCrafts}
             setFilteredCrafts={setFilteredCrafts}
           />
