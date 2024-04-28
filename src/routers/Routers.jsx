@@ -15,6 +15,7 @@ import AllArtAndCraft from "../components/AllArtCraft/AllArtCraft";
 import CraftDetails from "../components/CraftDetails/CraftDetails";
 import UpdateCraft from "../components/UpdateCraft/UpdateCraft";
 import ErrorPage from "../components/ErrorPage/ErrorPage";
+import SubCategoryPage from "../components/SubCategoryPage/SubCategoryPage";
 export const routers = createBrowserRouter([
   {
     path: "/",
@@ -57,6 +58,14 @@ export const routers = createBrowserRouter([
         element: <UpdateCraft />,
         loader: ({ params }) =>
           fetch(`http://localhost:5003/getcraft/${params.id}`),
+      },
+      {
+        path: "/:subcategory",
+        element: <SubCategoryPage />,
+        loader: ({ params }) =>
+          fetch(
+            `http://localhost:5003/getcraftsbycategory/${params.subcategory}`
+          ),
       },
       {
         path: "/login",

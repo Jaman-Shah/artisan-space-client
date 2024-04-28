@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const CategoryCard = ({ category }) => {
   const {
@@ -11,7 +12,10 @@ const CategoryCard = ({ category }) => {
   } = category;
 
   return (
-    <div className="p-4 shadow-xl rounded-3xl bg-[#1AB7EA] border-2 border-white">
+    <Link
+      to={`/${subcategory_name}`}
+      className="p-4 shadow-xl rounded-3xl bg-[#1AB7EA] border-2 border-white"
+    >
       <div>
         <img src={image} alt="" className="w-full h-52 rounded-3xl mb-4" />
       </div>
@@ -39,7 +43,7 @@ const CategoryCard = ({ category }) => {
           </ol>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
