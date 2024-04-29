@@ -57,7 +57,7 @@ const IndividualCraftCard = ({
   };
   return (
     <Slide direction="up" triggerOnce>
-      <div className="p-4 shadow-xl rounded-3xl  ">
+      <div className="p-4 shadow-xl rounded-3xl  border border-blue-400">
         <div>
           <img src={image} alt="" className="w-full  rounded-3xl mb-4" />
         </div>

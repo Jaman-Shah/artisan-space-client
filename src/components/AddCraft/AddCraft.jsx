@@ -86,11 +86,14 @@ const AddCraft = () => {
   ];
 
   return (
-    <Slide direction="right" className="p-4 mx-auto  ">
-      <h1 className="text-4xl font-extrabold mb-4 text-center">
-        <span className="text-blue-500"> Add Craft</span>{" "}
-        <span className="text-red-500">Item</span>
-      </h1>
+    <Slide direction="right" className="px-4 mx-auto">
+      <div className="mt-6">
+        <h1 className="text-2xl md:text-4xl font-extrabold  text-center">
+          <span className="text-blue-500"> Add Craft</span>
+          <span className="text-red-500"> Item</span>
+        </h1>
+      </div>
+      <div className="divider"></div>
       <form
         onSubmit={handleSubmit}
         className="grid grid-cols-1 md:grid-cols-3 gap-4"

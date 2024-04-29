@@ -94,7 +94,7 @@ const UpdateCraft = () => {
 
   return (
     <div className="p-4 mx-auto  ">
-      <h1 className="text-4xl font-extrabold mb-4 text-center">
+      <h1 className="text-2xl md:text-4xl font-extrabold mb-4 text-center">
         <span className="text-blue-500"> Update</span> Craft{" "}
         <span className="text-red-500">Item</span>
       </h1>

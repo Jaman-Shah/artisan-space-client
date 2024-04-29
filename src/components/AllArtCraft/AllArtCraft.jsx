@@ -13,12 +13,12 @@ const AllArtAndCraft = () => {
     <div className="py-8">
       <div className="max-w-4xl mx-auto ">
         <Fade>
-          <h1 className="text-4xl font-bold mb-4 text-center">
+          <h1 className="text-2xl md:text-4xl font-bold mb-4 text-center">
             All <span className="text-orange-500">Art </span>& Craft{" "}
             <span className="text-blue-400">Items</span>
           </h1>
         </Fade>
-
+        <div className="divider px-4 md:p-0"></div>
         <Slide direction="up">
           <table className="w-full border-collapse border border-gray-300">
             <thead>

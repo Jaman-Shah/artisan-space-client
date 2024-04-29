@@ -89,11 +89,12 @@ const Register = () => {
   return (
     <div className="bg-right-top bg-cover bg-no-repeat p-4 flex flex-col md:flex-row justify-between">
       {/* login left side  */}
-      <div className="w-full md:w-1/2 p-12 md:p-6">
-        <h1 className="font-extrabold text-6xl text-black text-center my-4 text-">
+      <div className="w-full md:w-1/2 p-0 md:px-12 md:p-6">
+        <h1 className="font-extrabold text-2xl md:text-4xl lg:text-6xl text-black text-center my-4 text-">
           <span className="text-blue-500">Register</span>{" "}
           <span className="text-orange-500">Here :</span>
         </h1>
+        <div className="divider"></div>
         <form onSubmit={handleRegister} className="flex gap-4 flex-col ">
           <div className="relative">
             <FaUserAlt className="absolute text-[#64DD17] left-4 top-2 text-4xl" />

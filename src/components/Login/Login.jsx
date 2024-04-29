@@ -65,12 +65,13 @@ const Login = () => {
   return (
     <div className="bg-right-top bg-cover bg-no-repeat p-4 flex flex-col md:flex-row justify-between">
       {/* login left side  */}
-      <div className="w-full md:w-1/2 p-12 md:p-6">
-        <h1 className="font-extrabold text-6xl text-black text-center my-4 text-">
+      <div className="w-full  md:w-1/2  md:p-6">
+        <h1 className="font-extrabold text-2xl md:text-4xl lg:text-6xl text-black text-center my-4 text-">
           <span className="text-blue-500">Login</span>{" "}
           <span className="text-orange-500">Here :</span>
         </h1>
-        <form onSubmit={handleLogin} className="flex gap-4 flex-col ">
+        <div className="divider"></div>
+        <form onSubmit={handleLogin} className="flex gap-4 flex-col">
           <div className="relative">
             <MdEmail className="absolute text-[#64DD17] left-4 top-2 text-4xl" />
             <div>
