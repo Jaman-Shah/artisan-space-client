@@ -14,6 +14,8 @@ import { routers } from "./routers/Routers.jsx";
 import AuthProvider from "./providers/AuthProvider.jsx";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import "react-tooltip/dist/react-tooltip.css";
+import { Tooltip } from "react-tooltip";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -21,5 +23,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <RouterProvider router={routers} />
       <ToastContainer />
     </AuthProvider>
+    <Tooltip id="my-tooltip" />
   </React.StrictMode>
 );

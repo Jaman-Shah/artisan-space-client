@@ -40,16 +40,36 @@ const NavBar = () => {
             : ""
         }`}
       >
-        <NavLink to="/" className={activeClass}>
+        <NavLink
+          data-tooltip-id="my-tooltip"
+          data-tooltip-content="Go to Home"
+          to="/"
+          className={activeClass}
+        >
           HOME
         </NavLink>
-        <NavLink to="/allartandcraft" className={activeClass}>
-          ALL ART ADN CRAFT
+        <NavLink
+          data-tooltip-id="my-tooltip"
+          data-tooltip-content="Art And Craft You Added"
+          to="/allartandcraft"
+          className={activeClass}
+        >
+          ALL ART AND CRAFT
         </NavLink>
-        <NavLink to="/addcraft" className={activeClass}>
+        <NavLink
+          data-tooltip-id="my-tooltip"
+          data-tooltip-content="Add Your Art and Craft"
+          to="/addcraft"
+          className={activeClass}
+        >
           ADD CRAFT
         </NavLink>
-        <NavLink to="/myartandcraft" className={activeClass}>
+        <NavLink
+          data-tooltip-id="my-tooltip"
+          data-tooltip-content="Your Added Art and Crafts"
+          to="/myartandcraft"
+          className={activeClass}
+        >
           MY ART ADN CRAFT
         </NavLink>
         {user ? (
@@ -97,8 +117,8 @@ const NavBar = () => {
           <div className="flex items-center gap-4">
             <div className="w-[40px]">
               <div
-                className="tooltip hover:tooltip-open tooltip-left"
-                data-tip={user.displayName}
+                data-tooltip-id="my-tooltip"
+                data-tooltip-content={user.displayName}
               >
                 <img
                   src={user.photoURL}
@@ -108,6 +128,8 @@ const NavBar = () => {
               </div>
             </div>
             <button
+              data-tooltip-id="my-tooltip"
+              data-tooltip-content="Logout"
               onClick={handleSignOutUser}
               className=" btn rounded-full bg-[#FF1744] transition ease-in-out delay-100 duration-150 hover:bg-red-700 border-none hover:text-white"
             >

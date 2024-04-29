@@ -7,7 +7,7 @@ const CraftCategories = () => {
 
   // categories loading function
   const loadCategories = () => {
-    fetch("https://artisan-space-server.vercel.app/getcraftscategory")
+    fetch("http://localhost:5003/getcraftscategory")
       .then((res) => res.json())
       .then((data) => {
         setCategories(data);

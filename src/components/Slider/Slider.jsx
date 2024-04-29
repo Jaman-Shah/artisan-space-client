@@ -3,7 +3,6 @@ import {
   BsFillArrowRightCircleFill,
   BsFillArrowLeftCircleFill,
 } from "react-icons/bs";
-import { Typewriter } from "react-simple-typewriter";
 
 const slides = [
   {
@@ -71,12 +70,16 @@ const Slider = () => {
         </div>
         <div className="absolute bottom-[150px] right-1/3 md:right-[150px] flex md:flex-col gap-2 ">
           <button
+            data-tooltip-id="my-tooltip"
+            data-tooltip-content="Previous Slide"
             onClick={previousSlide}
             className="border bg-none p-4 hover:bg-[#07B278] hover:border-none duration-500"
           >
             <BsFillArrowLeftCircleFill className="text-orange-600" />
           </button>
           <button
+            data-tooltip-id="my-tooltip"
+            data-tooltip-content="Next Slide"
             onClick={nextSlide}
             className="border bg-none p-4 hover:bg-[#07B278] hover:border-none duration-500"
           >

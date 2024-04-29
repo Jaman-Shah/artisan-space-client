@@ -1,10 +1,14 @@
 import { Fade, Slide } from "react-awesome-reveal";
 import { Link, useLoaderData } from "react-router-dom";
+import Loader from "../Loader/Loader";
 
 const AllArtAndCraft = () => {
   const loadedCrafts = useLoaderData();
 
   console.log(loadedCrafts);
+  if (!loadedCrafts) {
+    return <Loader />;
+  }
   return (
     <div className="py-8">
       <div className="max-w-4xl mx-auto ">
@@ -14,6 +18,7 @@ const AllArtAndCraft = () => {
             <span className="text-blue-400">Items</span>
           </h1>
         </Fade>
+
         <Slide direction="up">
           <table className="w-full border-collapse border border-gray-300">
             <thead>
