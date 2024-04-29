@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Fade, Slide } from "react-awesome-reveal";
 import { Link, useLoaderData } from "react-router-dom";
+import { ThemeContext } from "../../providers/ThemeProvider";
 
 const AllArtAndCraft = () => {
   const loadedCrafts = useLoaderData();
+  const { darkValue } = useContext(ThemeContext);
 
   return (
     <div className="py-8">
@@ -38,13 +40,25 @@ const AllArtAndCraft = () => {
                     key={index}
                     className={index % 2 === 0 ? "bg-green-200" : "bg-green-50"}
                   >
-                    <td className="border-r-2 border-black px-4 py-2 text-center">
+                    <td
+                      className={`border-r-2 ${
+                        darkValue ? "text-black" : ""
+                      } border-black px-4 py-2 text-center`}
+                    >
                       {item.item_name}
                     </td>
-                    <td className="border-r-2 border-black px-4 py-2 text-center">
+                    <td
+                      className={`border-r-2 ${
+                        darkValue ? "text-black" : ""
+                      } border-black px-4 py-2 text-center`}
+                    >
                       {item.price}
                     </td>
-                    <td className="border-r-2 border-black px-4 py-2 text-center">
+                    <td
+                      className={`border-r-2 ${
+                        darkValue ? "text-black" : ""
+                      } border-black px-4 py-2 text-center`}
+                    >
                       {item.rating}
                     </td>
                     <td className=" text-center">

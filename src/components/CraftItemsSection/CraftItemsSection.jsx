@@ -26,7 +26,7 @@ const CraftItemsSection = () => {
   } else
     return (
       <div>
-        <div className="p-4 md:p-12 border">
+        <div className="p-4 md:p-12">
           <div className="divider divider-primary">
             <h3 className="text-2xl md:text-4xl font-extrabold">
               Let's <span className="text-blue-500">See</span> Our

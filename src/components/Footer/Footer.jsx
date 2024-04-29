@@ -1,10 +1,10 @@
 import React from "react";
 import { Slide } from "react-awesome-reveal";
-import { TbCopyrightFilled } from "react-icons/tb";
+
 const Footer = () => {
   return (
     <Slide direction="up" triggerOnce>
-      <footer className="bg-black text-white mt-8">
+      <footer className="bg-black text-white border-t mt-8">
         <div className="text-center pt-12">
           <h1 className="font-extrabold text-4xl mb-4">Artisan Space</h1>
           <p>&copy; copyright : Artisan Space Company </p>

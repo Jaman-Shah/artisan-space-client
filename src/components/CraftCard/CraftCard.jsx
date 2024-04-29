@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { RiMoneyDollarCircleLine } from "react-icons/ri";
 import { MdOutlineStarRate } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { Slide } from "react-awesome-reveal";
+import { ThemeContext } from "../../providers/ThemeProvider";
 
 const CraftCard = ({ craft }) => {
+  const { darkValue } = useContext(ThemeContext);
   const {
     _id,
     image,
@@ -16,7 +18,11 @@ const CraftCard = ({ craft }) => {
   } = craft;
   return (
     <Slide direction="up" triggerOnce>
-      <div className="pt-44  md:pt-36 px-6 pb-4 shadow-xl mt-28 md:mt-20 md:my-12 rounded-xl border-2 border-black relative">
+      <div
+        className={`pt-44  md:pt-36 px-6 pb-4 shadow-xl mt-28 md:mt-20 md:my-12 rounded-xl border-2 ${
+          darkValue ? "border-orange-500" : "border-black"
+        }  relative`}
+      >
         <div className="absolute  w-4/5 top-10 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
           <img src={image} alt="" className="w-full  rounded-xl mb-4" />
         </div>
@@ -41,7 +47,9 @@ const CraftCard = ({ craft }) => {
         <div className="text-center my-4">
           <Link
             to={`/craftdetails/${_id}`}
-            className="bg-transparent border-2 border-blue-600 text-black p-3  hover:bg-blue-600 transition duration-700"
+            className={`bg-transparent border-2 border-blue-600 ${
+              darkValue ? "text-white" : ""
+            } text-black p-3  hover:bg-blue-600 transition duration-700`}
           >
             View Details
           </Link>

@@ -2,8 +2,10 @@ import { useContext, useState } from "react";
 import { Slide } from "react-awesome-reveal";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { ThemeContext } from "../../providers/ThemeProvider";
 
 const UpdateCraft = () => {
+  const { darkValue } = useContext(ThemeContext);
   // importing navigate function
   const navigate = useNavigate();
   // loading information which should be updated
@@ -105,7 +107,11 @@ const UpdateCraft = () => {
         >
           {formInputs.map((input) => (
             <div key={input.name} className="mb-4">
-              <label className="block text-black mb-1 font-bold">
+              <label
+                className={`block ${
+                  darkValue ? "text-white" : ""
+                } text-black mb-1 font-bold`}
+              >
                 {input.label}:
               </label>
               {input.type === "dropdown" ? (
@@ -113,7 +119,7 @@ const UpdateCraft = () => {
                   name={input.name}
                   value={formData[input.name]}
                   onChange={handleChange}
-                  className="w-full px-3 py-2 border-2 border-black rounded"
+                  className="w-full text-black px-3 py-2 border-2 border-black rounded"
                   required
                 >
                   <option value="">Select {input.label}</option>
@@ -129,7 +135,7 @@ const UpdateCraft = () => {
                   name={input.name}
                   value={formData[input.name]}
                   onChange={handleChange}
-                  className="w-full px-3 py-2 border-2 border-black rounded"
+                  className="w-full text-black px-3 py-2 border-2 border-black rounded"
                   disabled={input.disabled}
                   required
                 />

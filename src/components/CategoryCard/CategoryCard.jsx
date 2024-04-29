@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Fade } from "react-awesome-reveal";
 import { Link } from "react-router-dom";
+import { ThemeContext } from "../../providers/ThemeProvider";
 
 const CategoryCard = ({ category }) => {
+  const { darkValue } = useContext(ThemeContext);
   const {
     _id,
     image,
@@ -15,7 +17,9 @@ const CategoryCard = ({ category }) => {
   return (
     <Link
       to={`/crafts/${subcategory_name}`}
-      className="p-4 shadow-xl rounded-3xl bg-[#1AB7EA] border-2 border-white"
+      className={`p-4 shadow-xl rounded-3xl ${
+        darkValue ? "bg-transparent" : ""
+      }  bg-[#1AB7EA] border-2 border-white`}
     >
       <Fade>
         <div>

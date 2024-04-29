@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { MdOutlineStarRate } from "react-icons/md";
 import { RiMoneyDollarCircleLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
+import { ThemeContext } from "../../providers/ThemeProvider";
 
 const SubCategoryPageCard = ({ craft }) => {
+  const { darkValue } = useContext(ThemeContext);
   const {
     _id,
     image,
@@ -44,7 +46,9 @@ const SubCategoryPageCard = ({ craft }) => {
       <div className="text-center my-4">
         <Link
           to={`/craftdetails/${_id}`}
-          className="bg-transparent border-2 border-blue-600 text-black p-3  hover:bg-blue-600 transition duration-700"
+          className={`bg-transparent border-2 border-blue-600 ${
+            darkValue ? "text-white" : ""
+          } text-black p-3  hover:bg-blue-600 transition duration-700`}
         >
           View Details
         </Link>

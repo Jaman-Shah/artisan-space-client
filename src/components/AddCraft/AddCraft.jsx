@@ -2,9 +2,11 @@ import React, { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import { toast } from "react-toastify";
 import { Slide } from "react-awesome-reveal";
+import { ThemeContext } from "../../providers/ThemeProvider";
 
 const AddCraft = () => {
   const { user } = useContext(AuthContext);
+  const { darkValue } = useContext(ThemeContext);
 
   // initializing form input values state with empty values
   const [formData, setFormData] = useState({
@@ -100,7 +102,11 @@ const AddCraft = () => {
       >
         {formInputs.map((input) => (
           <div key={input.name} className="mb-4">
-            <label className="block text-black mb-1 font-bold">
+            <label
+              className={`block ${
+                darkValue ? "text-white" : ""
+              } text-black mb-1 font-bold`}
+            >
               {input.label}:
             </label>
             {input.type === "dropdown" ? (
@@ -108,7 +114,7 @@ const AddCraft = () => {
                 name={input.name}
                 value={formData[input.name]}
                 onChange={handleChange}
-                className="w-full px-3 py-2 border-2 border-black rounded"
+                className="w-full text-black px-3 py-2 border-2 border-black rounded"
                 required
               >
                 <option value="">Select {input.label}</option>
@@ -124,7 +130,7 @@ const AddCraft = () => {
                 name={input.name}
                 value={formData[input.name]}
                 onChange={handleChange}
-                className="w-full px-3 py-2 border-2 border-black rounded"
+                className="w-full text-black px-3 py-2 border-2 border-black rounded"
                 disabled={input.disabled}
                 required
               />
