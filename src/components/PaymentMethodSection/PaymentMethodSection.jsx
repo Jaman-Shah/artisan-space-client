@@ -7,7 +7,7 @@ const PaymentMethodSection = () => {
       <div>
         <div className="py-4">
           <div className="divider divider-info px-12">
-            <h1 className="font-extrabold text-3xl">
+            <h1 className="font-extrabold text-xl md:text-3xl">
               Our <span className="text-orange-600">Payment</span>{" "}
               <span className="text-blue-600">Methods</span>
             </h1>

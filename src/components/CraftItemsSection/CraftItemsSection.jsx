@@ -30,7 +30,7 @@ const CraftItemsSection = () => {
           <div className="divider divider-primary">
             <h3 className="text-2xl md:text-4xl font-extrabold">
               Let's <span className="text-blue-500">See</span> Our
-              <span className="text-orange-400">Items</span>
+              <span className="text-orange-400"> Items</span>
             </h3>
           </div>
           <Slide
