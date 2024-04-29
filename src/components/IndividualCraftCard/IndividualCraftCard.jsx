@@ -41,7 +41,7 @@ const IndividualCraftCard = ({
         //   icon: "success",
         // });
 
-        fetch(`http://localhost:5003/crafts/${_id}`, {
+        fetch(`https://artisan-space-server.vercel.app/crafts/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

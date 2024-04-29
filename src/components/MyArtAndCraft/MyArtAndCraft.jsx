@@ -11,7 +11,9 @@ const MyArtAndCraft = () => {
 
   // loading the crafts based on email
   const loadCrafts = async () => {
-    fetch(`http://localhost:5003/getcraftsbyemail/${user.email}`)
+    fetch(
+      `https://artisan-space-server.vercel.app/getcraftsbyemail/${user.email}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setLoadedCrafts(data);

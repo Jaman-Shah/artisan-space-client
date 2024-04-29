@@ -29,7 +29,7 @@ export const routers = createBrowserRouter([
       {
         path: "/allartandcraft",
         element: <AllArtAndCraft />,
-        loader: () => fetch("http://localhost:5003/getallcrafts"),
+        loader: () => fetch("https://artisan-space-server.vercel.app/getallcrafts"),
       },
       {
         path: "/addcraft",
@@ -51,20 +51,20 @@ export const routers = createBrowserRouter([
         path: "/craftdetails/:id",
         element: <CraftDetails />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5003/getcraft/${params.id}`),
+          fetch(`https://artisan-space-server.vercel.app/getcraft/${params.id}`),
       },
       {
         path: "/updatecraft/:id",
         element: <UpdateCraft />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5003/getcraft/${params.id}`),
+          fetch(`https://artisan-space-server.vercel.app/getcraft/${params.id}`),
       },
       {
         path: "/:subcategory",
         element: <SubCategoryPage />,
         loader: ({ params }) =>
           fetch(
-            `http://localhost:5003/getcraftsbycategory/${params.subcategory}`
+            `https://artisan-space-server.vercel.app/getcraftsbycategory/${params.subcategory}`
           ),
       },
       {

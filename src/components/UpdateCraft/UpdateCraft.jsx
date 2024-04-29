@@ -41,7 +41,7 @@ const UpdateCraft = () => {
 
   const handleUpdate = (e) => {
     e.preventDefault();
-    fetch(`http://localhost:5003/updatecraft/${_id}`, {
+    fetch(`https://artisan-space-server.vercel.app/updatecraft/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

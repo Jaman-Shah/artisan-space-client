@@ -29,7 +29,7 @@ const AddCraft = () => {
     e.preventDefault();
 
     // fetch url for storing data to database
-    fetch("http://localhost:5003/createcrafts", {
+    fetch("https://artisan-space-server.vercel.app/createcrafts", {
       method: "POST",
       headers: {
         "content-type": "application/json",
