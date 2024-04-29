@@ -9,12 +9,14 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import { updateProfile } from "firebase/auth";
 import { auth } from "../../firebase/firebase.config";
+import { ThemeContext } from "../../providers/ThemeProvider";
 
 const Register = () => {
   const [eyeOpen, setEyeOpen] = useState(false);
 
   // importing create user function form auth context
   const { createUser } = useContext(AuthContext);
+  const { darkValue } = useContext(ThemeContext);
 
   // importing the navigate function
   const navigate = useNavigate();
@@ -103,7 +105,9 @@ const Register = () => {
                 type="text"
                 name="name"
                 placeholder="Enter your Name"
-                className="placeholder:text-black h-14 w-full bg-transparent border-4 p-6 pl-14 bg-none text-black border-[#5C6BC0] rounded-2xl"
+                className={`${
+                  darkValue ? "placeholder:text-white" : ""
+                } placeholder:text-black h-14 w-full bg-transparent border-4 p-6 pl-14 bg-none text-black border-[#5C6BC0] rounded-2xl`}
                 required
               />
             </div>
@@ -115,7 +119,9 @@ const Register = () => {
                 type="email"
                 name="email"
                 placeholder="Enter your Email"
-                className="placeholder:text-black h-14 w-full bg-transparent border-4 p-6 pl-14 bg-none text-black border-[#5C6BC0] rounded-2xl"
+                className={`${
+                  darkValue ? "placeholder:text-white" : ""
+                } placeholder:text-black h-14 w-full bg-transparent border-4 p-6 pl-14 bg-none text-black border-[#5C6BC0] rounded-2xl`}
                 required
               />
             </div>
@@ -127,7 +133,9 @@ const Register = () => {
                 type="text"
                 name="photo_url"
                 placeholder="Enter your Photo Url"
-                className="placeholder:text-black h-14 w-full bg-transparent border-4 p-6 pl-14 bg-none text-black border-[#5C6BC0] rounded-2xl"
+                className={`${
+                  darkValue ? "placeholder:text-white" : ""
+                } placeholder:text-black h-14 w-full bg-transparent border-4 p-6 pl-14 bg-none text-black border-[#5C6BC0] rounded-2xl`}
                 required
               />
             </div>
@@ -139,7 +147,9 @@ const Register = () => {
                 type={eyeOpen ? "text" : "password"}
                 name="password"
                 placeholder="Enter your Password"
-                className="placeholder:text-black h-14 w-full bg-transparent border-4 p-6 pl-14 bg-none text-black border-[#5C6BC0] rounded-2xl"
+                className={`${
+                  darkValue ? "placeholder:text-white" : ""
+                } placeholder:text-black h-14 w-full bg-transparent border-4 p-6 pl-14 bg-none text-black border-[#5C6BC0] rounded-2xl`}
                 required
               />
               <span className="absolute right-5 text-black text-2xl top-4">
@@ -151,16 +161,24 @@ const Register = () => {
               </span>
             </div>
           </div>
-          <div className="flex gap-6  border-b-2 border-black py-4 font-extrabold">
-            <h3 className="text-black">Already have an account?</h3>
+          <div
+            className={`flex gap-6 ${
+              darkValue ? "text-white border-white" : ""
+            } border-b-2 text-black border-black py-4 font-extrabold`}
+          >
+            <h3 className="">Already have an account?</h3>
             <Link
               to="/login"
-              className="border-b-2 text-black hover:text-blue-500 hover:border-blue-500"
+              className="border-b-2  hover:text-blue-500 hover:border-blue-500"
             >
               Login
             </Link>
           </div>
-          <button className="border-2 border-[#3D5AFE] text-black hover:bg-[#3D5AFE]  transition duration-700  w-full  p-4">
+          <button
+            className={`border-2 ${
+              darkValue ? "text-white" : ""
+            } border-[#3D5AFE] text-black hover:bg-[#3D5AFE]  transition duration-700  w-full  p-4`}
+          >
             Register
           </button>
         </form>

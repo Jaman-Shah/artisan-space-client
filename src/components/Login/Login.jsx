@@ -5,10 +5,13 @@ import { FaGoogle, FaGithub } from "react-icons/fa";
 import { BsFillEyeSlashFill, BsFillEyeFill } from "react-icons/bs";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
+import { ThemeContext } from "../../providers/ThemeProvider";
+
 import { toast } from "react-toastify";
 
 const Login = () => {
   const [eyeOpen, setEyeOpen] = useState(false);
+  const { darkValue } = useContext(ThemeContext);
 
   // importing loginUser function from auth provider
   const { loginUser, signInWithGoogle, signInWithGithub } =
@@ -79,7 +82,11 @@ const Login = () => {
                 type="email"
                 name="email"
                 placeholder="Enter your Email"
-                className="placeholder:text-black h-14 w-full bg-transparent border-4 p-6 pl-14 bg-none text-black border-[#5C6BC0] rounded-2xl"
+                className={`${
+                  darkValue
+                    ? "placeholder:text-white text-white"
+                    : "placeholder:text-black"
+                } placeholder:text-black h-14 w-full bg-transparent border-4 p-6 pl-14 bg-none text-black border-[#5C6BC0] rounded-2xl`}
                 required
               />
             </div>
@@ -91,10 +98,18 @@ const Login = () => {
                 type={eyeOpen ? "text" : "password"}
                 name="password"
                 placeholder="Enter your Password"
-                className="placeholder:text-black h-14 w-full bg-transparent border-4 p-6 pl-14 bg-none text-black border-[#5C6BC0] rounded-2xl"
+                className={`${
+                  darkValue
+                    ? "placeholder:text-white text-white"
+                    : "placeholder:text-black"
+                } placeholder:text-black h-14 w-full bg-transparent border-4 p-6 pl-14 bg-none text-black border-[#5C6BC0] rounded-2xl`}
                 required
               />
-              <span className="absolute right-5 text-black text-2xl top-4">
+              <span
+                className={`${
+                  darkValue ? "text-white" : ""
+                } absolute right-5 text-black text-2xl top-4`}
+              >
                 {eyeOpen ? (
                   <BsFillEyeFill onClick={() => setEyeOpen(false)} />
                 ) : (
@@ -103,16 +118,20 @@ const Login = () => {
               </span>
             </div>
           </div>
-          <div className="flex gap-6  border-b-2 border-black py-4 font-extrabold">
-            <h3 className="text-black">Don't have an account?</h3>
+          <div
+            className={`${
+              darkValue ? "text-white" : ""
+            } flex gap-6 text-black  border-b-2 border-black py-4 font-extrabold`}
+          >
+            <h3 className="">Don't have an account?</h3>
             <Link
               to="/register"
-              className="border-b-2 text-black hover:text-blue-500 hover:border-blue-500"
+              className="border-b-2  hover:text-blue-500 hover:border-blue-500"
             >
               Register
             </Link>
           </div>
-          <button className="border-2 border-[#3D5AFE] text-black hover:bg-[#3D5AFE]  transition duration-700  w-full  p-4">
+          <button className="border-2 border-[#3D5AFE]  hover:bg-[#3D5AFE]  transition duration-700  w-full  p-4">
             Login
           </button>
         </form>
