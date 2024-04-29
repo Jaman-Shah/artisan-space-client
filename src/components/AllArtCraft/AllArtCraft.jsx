@@ -1,14 +1,10 @@
+import React from "react";
 import { Fade, Slide } from "react-awesome-reveal";
 import { Link, useLoaderData } from "react-router-dom";
-import Loader from "../Loader/Loader";
 
 const AllArtAndCraft = () => {
   const loadedCrafts = useLoaderData();
 
-  console.log(loadedCrafts);
-  if (!loadedCrafts) {
-    return <Loader />;
-  }
   return (
     <div className="py-8">
       <div className="max-w-4xl mx-auto ">
@@ -36,7 +32,7 @@ const AllArtAndCraft = () => {
               </tr>
             </thead>
             <tbody>
-              {loadedCrafts &&
+              {loadedCrafts && loadedCrafts.length > 0 ? (
                 loadedCrafts.map((item, index) => (
                   <tr
                     key={index}
@@ -60,7 +56,14 @@ const AllArtAndCraft = () => {
                       </Link>
                     </td>
                   </tr>
-                ))}
+                ))
+              ) : (
+                <tr>
+                  <td colSpan="4" className="text-center">
+                    No items found
+                  </td>
+                </tr>
+              )}
             </tbody>
           </table>
         </Slide>

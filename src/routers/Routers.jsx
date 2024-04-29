@@ -60,7 +60,7 @@ export const routers = createBrowserRouter([
           fetch(`http://localhost:5003/getcraft/${params.id}`),
       },
       {
-        path: "/:subcategory",
+        path: "/crafts/:subcategory",
         element: <SubCategoryPage />,
         loader: ({ params }) =>
           fetch(

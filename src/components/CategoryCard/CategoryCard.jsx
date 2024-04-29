@@ -14,7 +14,7 @@ const CategoryCard = ({ category }) => {
 
   return (
     <Link
-      to={`/${subcategory_name}`}
+      to={`/crafts/${subcategory_name}`}
       className="p-4 shadow-xl rounded-3xl bg-[#1AB7EA] border-2 border-white"
     >
       <Fade>
