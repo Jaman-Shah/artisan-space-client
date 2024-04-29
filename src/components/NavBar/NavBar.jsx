@@ -8,6 +8,7 @@ import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import { toast } from "react-toastify";
+import { MdLogout } from "react-icons/md";
 
 const NavBar = () => {
   const { user, signOutUser } = useContext(AuthContext);
@@ -133,7 +134,8 @@ const NavBar = () => {
               onClick={handleSignOutUser}
               className=" btn rounded-full bg-[#FF1744] transition ease-in-out delay-100 duration-150 hover:bg-red-700 border-none hover:text-white"
             >
-              SignOut
+              <MdLogout />
+              <span className="tooltip-text">LogOut</span>
             </button>
           </div>
         ) : (
