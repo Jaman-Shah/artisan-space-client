@@ -56,7 +56,7 @@ const AllArtAndCraft = () => {
                         to={`/craftdetails/${item._id}`}
                         className="border-2 border-gray-500 md:p-2  text-black bg-transparent  hover:bg-green-400 hover:border-green-500 transition duration-500  rounded"
                       >
-                        View Details
+                        Details
                       </Link>
                     </td>
                   </tr>

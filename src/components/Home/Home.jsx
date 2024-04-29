@@ -9,7 +9,7 @@ const Home = () => {
   return (
     <div>
       <Slider />
-      <div className="px-4">
+      <div className="px-2">
         <CraftItemsSection />
         <CraftCategories />
         <ContactSection />

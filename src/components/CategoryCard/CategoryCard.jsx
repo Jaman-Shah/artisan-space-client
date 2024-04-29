@@ -24,16 +24,14 @@ const CategoryCard = ({ category }) => {
       </Fade>
       <Fade cascade>
         <div className="text-center ">
-          <h3 className="font-bold text-3xl text-orange-500">
-            {subcategory_name}
-          </h3>
+          <h3 className="font-bold text-3xl text-white">{subcategory_name}</h3>
           <hr className="my-4 border border-white" />
           <h4 className="my-4 text-xl ">{origins}</h4>
           <p className="my-4 font-bold">{key_elements}</p>
         </div>
         <div className=" px-4">
           <h1 className="font-bold ">
-            <span className="text-orange-500 text-xl">Specific Styles</span> :{" "}
+            <span className="text-white text-xl">Specific Styles</span> :{" "}
           </h1>
           <div className="">
             <ol className="list-decimal pl-5">

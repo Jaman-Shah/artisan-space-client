@@ -22,15 +22,15 @@ const CraftCategories = () => {
   return (
     <div>
       <Fade>
-        <div className="my-16 text-center px-12">
+        <div className="mt-16 md:my-16 text-center px-12">
           <div class="divider divider-warning">
-            <h3 className="font-extrabold text-3xl">
+            <h3 className="font-extrabold text-2xl md:text-4xl ">
               Our
-              <span className="text-red-500">Best</span>
-              <span className="text-green-500">Categories</span>
+              <span className="text-red-500"> Best</span>
+              <span className="text-green-500"> Categories</span>
             </h3>
           </div>
-          <p></p>
+          <div className="divider md:hidden"></div>
         </div>
       </Fade>
 

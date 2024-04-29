@@ -5,13 +5,14 @@ const PaymentMethodSection = () => {
   return (
     <Fade>
       <div>
-        <div className="py-4">
+        <div className="p-4">
           <div className="divider divider-info px-12">
             <h1 className="font-extrabold text-xl md:text-3xl">
               Our <span className="text-orange-600">Payment</span>{" "}
               <span className="text-blue-600">Methods</span>
             </h1>
           </div>
+          <div className="divider md:hidden"></div>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           <div className="h-[120px]">

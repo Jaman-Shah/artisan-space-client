@@ -16,7 +16,7 @@ const CraftCard = ({ craft }) => {
   } = craft;
   return (
     <Slide direction="up" triggerOnce>
-      <div className="pt-44 md:pt-36 px-6 pb-4 shadow-xl mt-28 md:mt-20 md:my-16 rounded-xl border-2 border-black relative">
+      <div className="pt-44  md:pt-36 px-6 pb-4 shadow-xl mt-28 md:mt-20 md:my-12 rounded-xl border-2 border-black relative">
         <div className="absolute  w-4/5 top-10 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
           <img src={image} alt="" className="w-full  rounded-xl mb-4" />
         </div>

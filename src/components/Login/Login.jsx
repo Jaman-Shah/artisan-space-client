@@ -121,14 +121,14 @@ const Login = () => {
             className="btn bg-orange-500 text-black  w-1/2 transition duration-500 border-none rounded-none hover:bg-green-500  p-4"
           >
             <FaGoogle />
-            Google Login
+            <span className="hidden  md:flex">Google Login</span>
           </button>
           <button
             onClick={handleGithubLogin}
             className="btn bg-black text-white border-none w-1/2 transition duration-500 rounded-none  hover:bg-green-500  p-4"
           >
             <FaGithub />
-            Github Login
+            <span className="hidden  md:flex">Github Login</span>
           </button>
         </div>
       </div>
