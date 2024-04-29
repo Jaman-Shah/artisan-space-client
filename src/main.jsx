@@ -16,13 +16,16 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "react-tooltip/dist/react-tooltip.css";
 import { Tooltip } from "react-tooltip";
+import ThemeProvider from "./providers/ThemeProvider.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <AuthProvider>
-      <RouterProvider router={routers} />
-      <ToastContainer />
-    </AuthProvider>
+    <ThemeProvider>
+      <AuthProvider>
+        <RouterProvider router={routers} />
+        <ToastContainer />
+      </AuthProvider>
+    </ThemeProvider>
     <Tooltip id="my-tooltip" />
   </React.StrictMode>
 );

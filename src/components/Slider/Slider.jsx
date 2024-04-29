@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import {
   BsFillArrowRightCircleFill,
   BsFillArrowLeftCircleFill,
 } from "react-icons/bs";
+import { ThemeContext } from "../../providers/ThemeProvider";
 
 const slides = [
   {
@@ -26,6 +27,8 @@ const slides = [
 const Slider = () => {
   const [current, setCurrent] = useState(0);
 
+  const { darkValue } = useContext(ThemeContext);
+
   const previousSlide = () => {
     setCurrent((current - 1 + slides.length) % slides.length);
   };
@@ -43,27 +46,48 @@ const Slider = () => {
       />
 
       <div className="absolute p-4 top-10 h-full w-full justify-between items-center flex text-white px-10 text-3xl">
-        <div className="absolute top-2 md:top-20 border-l-[15px] md:border-l-[24px] border-blue-500 p-4">
+        <div
+          className={`absolute top-2 md:top-20 border-l-[15px] md:border-l-[24px] ${
+            darkValue ? "border-gray-950" : "border-blue-500"
+          } p-4`}
+        >
           <div className="font-semibold md:font-extrabold text-3xl lg:text-[70px] flex flex-col gap-2 md:gap-10 lg:mb-6 ">
             <h1>
-              <span className="text-orange-500"> Find</span> Best
+              <span className="text-orange-500"> Find</span>{" "}
+              <span className={`${darkValue ? "text-gray-400" : ""}`}>
+                Best
+              </span>
               <span className="text-blue-500"> Art and Crafts</span>
             </h1>
             <h1>
-              Products <span className="text-green-500">From</span> Our
+              <span className={`${darkValue ? "text-gray-400" : ""}`}>
+                Products
+              </span>{" "}
+              <span className="text-green-500">From</span>{" "}
+              <span className={`${darkValue ? "text-gray-400" : ""}`}>Our</span>
               <span className="text-orange-500"> Store</span>
             </h1>
           </div>
           <p className="text-lg lg:text-3xl">
-            Our Aim is to provide the best services to the customer,
-            <br />
-            There are lots of customers who are satisfied with our services
+            <span className={`${darkValue ? "text-gray-400" : ""}`}>
+              Our Aim is to provide the best services to the customer,
+              <br />
+              There are lots of customers who are satisfied with our services
+            </span>
           </p>
           <div className="flex z-10 text-xs md:text-xl mt-4 gap-2">
-            <button className="border p-1 md:p-4 hover:border-none hover:bg-green-500 transition duration-500">
+            <button
+              className={`border ${
+                darkValue ? "border-orange-600 text-gray-400" : "border-white"
+              } p-1 md:p-4 hover:border-none hover:bg-green-500 transition duration-500`}
+            >
               Contact Us
             </button>
-            <button className="border p-2 md:p-4 hover:border-none hover:bg-green-500 transition duration-500">
+            <button
+              className={`border ${
+                darkValue ? "border-orange-600 text-gray-400" : "border-white"
+              } p-1 md:p-4 hover:border-none hover:bg-green-500 transition duration-500`}
+            >
               Call Us
             </button>
           </div>
@@ -73,7 +97,9 @@ const Slider = () => {
             data-tooltip-id="my-tooltip"
             data-tooltip-content="Previous Slide"
             onClick={previousSlide}
-            className="border bg-none p-4 hover:bg-[#07B278] hover:border-none duration-500"
+            className={`border ${
+              darkValue ? "border-orange-600 text-gray-400" : "border-white"
+            } p-1 md:p-4 hover:border-none hover:bg-green-500 transition duration-500`}
           >
             <BsFillArrowLeftCircleFill className="text-orange-600" />
           </button>
@@ -81,7 +107,9 @@ const Slider = () => {
             data-tooltip-id="my-tooltip"
             data-tooltip-content="Next Slide"
             onClick={nextSlide}
-            className="border bg-none p-4 hover:bg-[#07B278] hover:border-none duration-500"
+            className={`border ${
+              darkValue ? "border-orange-600 text-gray-400" : "border-white"
+            } p-1 md:p-4 hover:border-none hover:bg-green-500 transition duration-500`}
           >
             <BsFillArrowRightCircleFill className="text-orange-600" />
           </button>

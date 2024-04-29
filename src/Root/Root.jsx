@@ -6,14 +6,16 @@
  * 3. there is a outlet for child elements
  */
 
-import React from "react";
+import React, { useContext } from "react";
 import NavBar from "../components/NavBar/NavBar";
 import { Outlet } from "react-router-dom";
 import Footer from "../components/Footer/Footer";
+import { ThemeContext } from "../providers/ThemeProvider";
 
 const Root = () => {
+  const { darkValue } = useContext(ThemeContext);
   return (
-    <div className="bg-blue-100">
+    <div className={`${darkValue ? "bg-[#23272F] text-white" : "bg-blue-100"}`}>
       <NavBar />
       <Outlet />
       <Footer />

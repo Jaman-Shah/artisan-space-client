@@ -9,9 +9,13 @@ import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import { toast } from "react-toastify";
 import { MdLogout } from "react-icons/md";
+import { ThemeContext } from "../../providers/ThemeProvider";
+import { setThemeValue } from "../utils/themeController";
+import { WiMoonFull, WiMoonAltWaxingCrescent5 } from "react-icons/wi";
 
 const NavBar = () => {
   const { user, signOutUser } = useContext(AuthContext);
+  const { darkValue, setDarkValue } = useContext(ThemeContext);
 
   const handleSignOutUser = () => {
     signOutUser()
@@ -21,6 +25,13 @@ const NavBar = () => {
       .catch((error) => {
         console.log(error);
       });
+  };
+
+  // theme controller function
+
+  const handleTheme = () => {
+    setDarkValue(!darkValue);
+    setThemeValue(!darkValue);
   };
   // reuseable classes and nav links for the navbar items
   const activeClass = ({ isActive }) =>
@@ -82,7 +93,13 @@ const NavBar = () => {
     );
   };
   return (
-    <nav className=" navbar  bg-[#5C6BC0]  z-50 sticky top-0">
+    <nav
+      className={`navbar ${
+        darkValue
+          ? "bg-[#23272F] border-b text-orange-400  border-gray-300"
+          : "bg-[#5C6BC0] "
+      } z-10 sticky top-0`}
+    >
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -113,7 +130,19 @@ const NavBar = () => {
       <div className="navbar-center justify-end hidden lg:flex">
         {links("horizontal")}
       </div>
-      <div className="navbar-end">
+      <div className="navbar-end flex gap-3 ">
+        <div
+          className="cursor-pointer z-20 "
+          onClick={handleTheme}
+          data-tooltip-id="my-tooltip"
+          data-tooltip-content="Theme"
+        >
+          {darkValue ? (
+            <WiMoonFull className="text-4xl text-orange-400" />
+          ) : (
+            <WiMoonAltWaxingCrescent5 className="text-4xl text-green " />
+          )}
+        </div>
         {user ? (
           <div className="flex items-center gap-4">
             <div className="w-[40px]">
@@ -142,13 +171,21 @@ const NavBar = () => {
           <div className="flex gap-3">
             <Link
               to="/login"
-              className=" flex items-center font-sm font-light btn:sm text-white md:btn-secondary  text-xs  p-2  md:text-sm rounded-full bg-none border-2 border-[#FF8F00]  transition duration-500 hover:bg-[#FF8F00] ease-in-out"
+              className={` flex items-center font-sm font-light btn:sm text-white md:btn-secondary  text-xs  p-2  md:text-sm rounded-full bg-none border-2 ${
+                darkValue
+                  ? "border-[#FF8F00] "
+                  : "border-white hover:border-[#FF8F00]"
+              }  transition duration-500 hover:bg-[#FF8F00] ease-in-out`}
             >
               Login
             </Link>
             <Link
               to="/register"
-              className=" flex items-center font-light btn:sm text-white md:btn-secondary  text-xs p-2  md:text-sm rounded-full bg-none border-2 border-[#FF8F00]  transition duration-500 hover:bg-[#FF8F00] ease-in-out"
+              className={` flex items-center font-sm font-light btn:sm text-white md:btn-secondary  text-xs  p-2  md:text-sm rounded-full bg-none border-2 ${
+                darkValue
+                  ? "border-[#FF8F00] "
+                  : "border-white hover:border-[#FF8F00]"
+              }  transition duration-500 hover:bg-[#FF8F00] ease-in-out`}
             >
               Register
             </Link>
