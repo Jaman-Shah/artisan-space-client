@@ -48,7 +48,9 @@ const NavBar = () => {
           view === "horizontal"
             ? "menu-horizontal px-1"
             : view === "vertical"
-            ? "menu-sm dropdown-content rounded-2xl mt-3 z-[1] p-2 shadow bg-[#5C6BC0] border w-52"
+            ? `menu-sm dropdown-content rounded-node  mt-3 z-[1] p-2  ${
+                darkValue ? "bg-[#23272F]" : "bg-[#5C6BC0]"
+              } border w-52`
             : ""
         }`}
       >
