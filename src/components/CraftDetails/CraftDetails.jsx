@@ -36,9 +36,11 @@ const CraftDetails = () => {
         }  md:pl-72 border-2 pt-40 md:pt-8 p-8`}
       >
         <div className="flex flex-row md:flex-col justify-between items-center mb-2  gap-0 md:gap-4 md:items-start">
-          <h1 className=" text-4xl font-extrabold ">{item_name}</h1>
-          <p className="font-bold text-green-500 text-xl">{stock_status}</p>
-          <p className="text-4xl md:text-[80px] my-2 text-yellow-400">
+          <h1 className="text-sm md:text-4xl font-extrabold ">{item_name}</h1>
+          <p className="font-bold text-green-500 text-sm md:text-xl">
+            {stock_status}
+          </p>
+          <p className="text-xl md:text-4xl md:text-[80px] my-2 text-yellow-400">
             {price} $
           </p>
         </div>
