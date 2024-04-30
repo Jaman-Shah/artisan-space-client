@@ -1,10 +1,16 @@
 import React, { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import { ThemeContext } from "../../providers/ThemeProvider";
+import { DataLoadingContext } from "../../providers/DataLoadingProvider";
+import Loader from "../Loader/Loader";
 
 const CraftDetails = () => {
-  const loadedCraft = useLoaderData();
   const { darkValue } = useContext(ThemeContext);
+  const { dataLoading, setDataLoading } = useContext(DataLoadingContext);
+
+  const loadedCraft = useLoaderData();
+
+  setDataLoading(false);
 
   const {
     customization,
@@ -19,7 +25,9 @@ const CraftDetails = () => {
     user_name,
   } = loadedCraft;
 
-  console.log(loadedCraft);
+  if (dataLoading) {
+    return <Loader />;
+  }
   return (
     <div className="container mx-auto p-4 md:p-20">
       <div
