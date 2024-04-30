@@ -129,8 +129,16 @@ const NavBar = () => {
           to="/"
           className=" text-white font-josefin font-extrabold btn btn-ghost text-lg md:text-4xl"
         >
-          <span className="text-orange-500 ">Artisan</span>{" "}
-          <span className="text-blue-500">Space</span>
+          <span
+            className={`${!darkValue ? "text-[#ECF0F1]" : ""} text-orange-500`}
+          >
+            Artisan
+          </span>{" "}
+          <span
+            className={`${!darkValue ? "text-[#FFF59D]" : ""} text-green-500`}
+          >
+            Space
+          </span>
         </Link>
       </div>
       <div className="navbar-center justify-end hidden lg:flex">
