@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import CategoryCard from "../CategoryCard/CategoryCard";
 import { Fade } from "react-awesome-reveal";
 import Loader from "../Loader/Loader";
+import { DataLoadingContext } from "../../providers/DataLoadingProvider";
 
 const CraftCategories = () => {
   const [categories, setCategories] = useState([]);
+  const { dataLoading, setDataLoading } = useContext(DataLoadingContext);
 
   // categories loading function
   const loadCategories = () => {
@@ -12,6 +14,7 @@ const CraftCategories = () => {
       .then((res) => res.json())
       .then((data) => {
         setCategories(data);
+        setDataLoading(false);
       });
   };
 
@@ -35,7 +38,7 @@ const CraftCategories = () => {
         </div>
       </Fade>
 
-      {categories.length > 0 ? (
+      {!dataLoading ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {categories &&
             categories.map((category) => {

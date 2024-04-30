@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
 import SubCategoryPageCard from "../SubCategoryPageCard/SubCategoryPageCard";
 import Loader from "../Loader/Loader";
+import { DataLoadingContext } from "../../providers/DataLoadingProvider";
 
 const SubCategoryPage = () => {
+  const { dataLoading, setDataLoading } = useContext(DataLoadingContext);
+
   const { subcategory } = useParams();
   const loadedCraft = useLoaderData();
+  setDataLoading(false);
 
-  console.log(loadedCraft);
   return (
     <div>
       <div className="my-4">
@@ -17,7 +20,7 @@ const SubCategoryPage = () => {
         </h1>
       </div>
       <div className="divider px-4"></div>
-      {loadedCraft.length > 0 ? (
+      {!dataLoading ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-2 gap-4">
           {loadedCraft &&
             loadedCraft.map((craft) => {

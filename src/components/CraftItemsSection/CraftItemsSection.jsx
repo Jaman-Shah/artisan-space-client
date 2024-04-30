@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import CraftCard from "../CraftCard/CraftCard";
 import { Slide } from "react-awesome-reveal";
 import Loader from "../Loader/Loader";
+import { DataLoadingContext } from "../../providers/DataLoadingProvider";
 
 const CraftItemsSection = () => {
   const [allCrafts, setAllCrafts] = useState([]);
+
+  const { dataLoading, setDataLoading } = useContext(DataLoadingContext);
 
   // fetching all crafts from url
   const loadAllCrafts = () => {
@@ -14,6 +17,7 @@ const CraftItemsSection = () => {
         // slicing the data for showing 6  data only
         const slicedData = data.slice(0, 6);
         setAllCrafts(slicedData);
+        setDataLoading(false);
       });
   };
 
@@ -45,7 +49,7 @@ const CraftItemsSection = () => {
           to your space.
         </Slide>
       </div>
-      {allCrafts.length > 0 ? (
+      {!dataLoading ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {allCrafts &&
             allCrafts.map((craft) => {

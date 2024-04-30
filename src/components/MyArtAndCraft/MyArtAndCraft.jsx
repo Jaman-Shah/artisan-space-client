@@ -2,10 +2,11 @@ import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import IndividualCraftCard from "../IndividualCraftCard/IndividualCraftCard";
 import Loader from "../Loader/Loader";
+import { DataLoadingContext } from "../../providers/DataLoadingProvider";
 
 const MyArtAndCraft = () => {
   const { user } = useContext(AuthContext);
-
+  const { dataLoading, setDataLoading } = useContext(DataLoadingContext);
   const [loadedCrafts, setLoadedCrafts] = useState([]);
   const [filteredCrafts, setFilteredCrafts] = useState([]);
   const [customization, setCustomization] = useState("");
@@ -17,6 +18,7 @@ const MyArtAndCraft = () => {
       .then((data) => {
         setLoadedCrafts(data);
         setFilteredCrafts(data);
+        setDataLoading(false);
       });
   };
 
@@ -63,7 +65,7 @@ const MyArtAndCraft = () => {
           </select>
         </div>
       </div>
-      {loadedCrafts.length > 0 ? (
+      {!dataLoading ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-2">
           {filteredCrafts.map((craft) => (
             <IndividualCraftCard
