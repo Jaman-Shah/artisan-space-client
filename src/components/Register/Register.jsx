@@ -59,7 +59,7 @@ const Register = () => {
       // Displaying the toast with the formatted error messages
       toast.error(errorMessage, {
         enableHtml: true,
-        autoClose: 1000,
+        autoClose: off,
         style: {
           backgroundColor: "red",
           color: "white",
@@ -83,7 +83,6 @@ const Register = () => {
             toast.error("This email is already in use.");
           } else {
             toast.error("An error occurred while creating the user.");
-            console.error(error);
           }
         });
     }

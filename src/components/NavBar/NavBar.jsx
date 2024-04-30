@@ -5,7 +5,7 @@
  */
 
 import React, { useContext } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import { toast } from "react-toastify";
 import { MdLogout } from "react-icons/md";
@@ -17,10 +17,13 @@ const NavBar = () => {
   const { user, signOutUser } = useContext(AuthContext);
   const { darkValue, setDarkValue } = useContext(ThemeContext);
 
+  const navigate = useNavigate();
+
   const handleSignOutUser = () => {
     signOutUser()
       .then(() => {
         toast.success("successfully sign out");
+        navigate("/");
       })
       .catch((error) => {
         console.log(error);

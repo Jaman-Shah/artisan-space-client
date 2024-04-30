@@ -47,6 +47,7 @@ const Login = () => {
   const handleGoogleLogIn = () => {
     signInWithGoogle()
       .then((result) => {
+        toast.success("Login Success");
         navigate(location.state || "/");
       })
       .catch((error) => {
@@ -58,6 +59,7 @@ const Login = () => {
   const handleGithubLogin = () => {
     signInWithGithub()
       .then((result) => {
+        toast.success("Login Success");
         navigate(location.state || "/");
       })
       .catch((error) => {
