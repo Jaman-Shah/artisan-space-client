@@ -1,12 +1,31 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Slide } from "react-awesome-reveal";
+import { ThemeContext } from "../../providers/ThemeProvider";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
+  const { darkValue } = useContext(ThemeContext);
   return (
     <Slide direction="up" triggerOnce>
       <footer className="bg-black text-white border-t mt-8">
         <div className="text-center pt-12">
-          <h1 className="font-extrabold text-4xl mb-4">Artisan Space</h1>
+          <Link
+            to="/"
+            className=" text-white font-josefin font-extrabold btn btn-ghost text-lg md:text-4xl"
+          >
+            <span
+              className={`${
+                !darkValue ? "text-[#ECF0F1]" : ""
+              } text-orange-500`}
+            >
+              Artisan
+            </span>{" "}
+            <span
+              className={`${!darkValue ? "text-[#FFF59D]" : ""} text-green-500`}
+            >
+              Space
+            </span>
+          </Link>
           <p>&copy; copyright : Artisan Space Company </p>
         </div>
         <div className="footer p-4 md:p-10">
