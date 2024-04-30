@@ -4,6 +4,8 @@ import {
   BsFillArrowLeftCircleFill,
 } from "react-icons/bs";
 import { ThemeContext } from "../../providers/ThemeProvider";
+import { Link } from "react-router-dom";
+import { AuthContext } from "../../providers/AuthProvider";
 
 const slides = [
   {
@@ -26,7 +28,7 @@ const slides = [
 
 const Slider = () => {
   const [current, setCurrent] = useState(0);
-
+  const { user } = useContext(AuthContext);
   const { darkValue } = useContext(ThemeContext);
 
   const previousSlide = () => {
@@ -75,22 +77,28 @@ const Slider = () => {
               There are lots of customers who are satisfied with our services
             </span>
           </p>
-          <div className="flex z-10 text-xs md:text-xl mt-4 gap-2">
-            <button
-              className={`border ${
-                darkValue ? "border-orange-600 text-gray-400" : "border-white"
-              } p-1 md:p-4 hover:border-none hover:bg-green-500 transition duration-500`}
-            >
-              Contact Us
-            </button>
-            <button
-              className={`border ${
-                darkValue ? "border-orange-600 text-gray-400" : "border-white"
-              } p-1 md:p-4 hover:border-none hover:bg-green-500 transition duration-500`}
-            >
-              Call Us
-            </button>
-          </div>
+          {!user ? (
+            <div className="flex z-10 text-xs md:text-xl mt-4 gap-2">
+              <Link
+                to="/register"
+                className={`border ${
+                  darkValue ? "border-orange-600 text-gray-400" : "border-white"
+                } p-1 md:p-4 hover:border-none hover:bg-green-500 transition duration-500`}
+              >
+                Register
+              </Link>
+              <Link
+                to="login"
+                className={`border ${
+                  darkValue ? "border-orange-600 text-gray-400" : "border-white"
+                } p-1 md:p-4 hover:border-none hover:bg-green-500 transition duration-500`}
+              >
+                Login
+              </Link>
+            </div>
+          ) : (
+            ""
+          )}
         </div>
         <div className="absolute bottom-[150px] right-1/3 md:right-[150px] flex md:flex-col gap-2 ">
           <button

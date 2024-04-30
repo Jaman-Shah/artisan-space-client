@@ -87,7 +87,7 @@ const NavBar = () => {
           to="/myartandcraft"
           className={activeClass}
         >
-          MY ART ADN CRAFT
+          MY ART AND CRAFT
         </NavLink>
         {user ? (
           <div className="flex flex-col md:flex-col lg:flex-row"></div>
