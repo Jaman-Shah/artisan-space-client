@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import IndividualCraftCard from "../IndividualCraftCard/IndividualCraftCard";
+import Loader from "../Loader/Loader";
 
 const MyArtAndCraft = () => {
   const { user } = useContext(AuthContext);
@@ -62,18 +63,22 @@ const MyArtAndCraft = () => {
           </select>
         </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-2">
-        {filteredCrafts.map((craft) => (
-          <IndividualCraftCard
-            key={craft._id}
-            craft={craft}
-            filteredCrafts={filteredCrafts}
-            loadedCrafts={loadedCrafts}
-            setLoadedCrafts={setLoadedCrafts}
-            setFilteredCrafts={setFilteredCrafts}
-          />
-        ))}
-      </div>
+      {loadedCrafts.length > 0 ? (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-2">
+          {filteredCrafts.map((craft) => (
+            <IndividualCraftCard
+              key={craft._id}
+              craft={craft}
+              filteredCrafts={filteredCrafts}
+              loadedCrafts={loadedCrafts}
+              setLoadedCrafts={setLoadedCrafts}
+              setFilteredCrafts={setFilteredCrafts}
+            />
+          ))}
+        </div>
+      ) : (
+        <Loader />
+      )}
     </div>
   );
 };

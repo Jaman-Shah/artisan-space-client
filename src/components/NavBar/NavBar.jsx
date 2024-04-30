@@ -124,15 +124,16 @@ const NavBar = () => {
         </div>
         <Link
           to="/"
-          className=" text-white font-extrabold btn btn-ghost text-xl md:text-3xl"
+          className=" text-white font-josefin font-extrabold btn btn-ghost text-lg md:text-4xl"
         >
-          Artisan Space
+          <span className="text-orange-500 ">Artisan</span>{" "}
+          <span className="text-blue-500">Space</span>
         </Link>
       </div>
       <div className="navbar-center justify-end hidden lg:flex">
         {links("horizontal")}
       </div>
-      <div className="navbar-end flex gap-3 ">
+      <div className="navbar-end flex gap-0 md:gap-3 ">
         <div
           className="cursor-pointer z-20 "
           onClick={handleTheme}
@@ -166,11 +167,11 @@ const NavBar = () => {
               className=" btn rounded-full bg-[#FF1744] transition ease-in-out delay-100 duration-150 hover:bg-red-700 border-none hover:text-white"
             >
               <MdLogout />
-              <span className="tooltip-text">LogOut</span>
+              <span className="tooltip-text hidden md:flex">LogOut</span>
             </button>
           </div>
         ) : (
-          <div className="flex gap-3">
+          <div className="flex gap-0 md:gap-3">
             <Link
               to="/login"
               className={` flex items-center font-sm font-light btn:sm text-white md:btn-secondary  text-xs  p-2  md:text-sm rounded-full bg-none border-2 ${

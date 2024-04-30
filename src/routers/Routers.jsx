@@ -29,7 +29,6 @@ export const routers = createBrowserRouter([
       {
         path: "/allartandcraft",
         element: <AllArtAndCraft />,
-        loader: () => fetch("http://localhost:5003/getallcrafts"),
       },
       {
         path: "/addcraft",

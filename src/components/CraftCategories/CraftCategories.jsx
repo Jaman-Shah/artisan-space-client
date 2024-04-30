@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import CategoryCard from "../CategoryCard/CategoryCard";
 import { Fade } from "react-awesome-reveal";
+import Loader from "../Loader/Loader";
 
 const CraftCategories = () => {
   const [categories, setCategories] = useState([]);
@@ -34,12 +35,16 @@ const CraftCategories = () => {
         </div>
       </Fade>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {categories &&
-          categories.map((category) => {
-            return <CategoryCard key={categories._id} category={category} />;
-          })}
-      </div>
+      {categories.length > 0 ? (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {categories &&
+            categories.map((category) => {
+              return <CategoryCard key={categories._id} category={category} />;
+            })}
+        </div>
+      ) : (
+        <Loader />
+      )}
     </div>
   );
 };

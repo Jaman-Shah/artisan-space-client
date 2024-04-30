@@ -1,11 +1,25 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Fade, Slide } from "react-awesome-reveal";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { ThemeContext } from "../../providers/ThemeProvider";
+import Loader from "../Loader/Loader";
 
 const AllArtAndCraft = () => {
-  const loadedCrafts = useLoaderData();
   const { darkValue } = useContext(ThemeContext);
+  const [loadedCrafts, setLoadedCrafts] = useState([]);
+
+  // fetching data
+
+  const loadCrafts = () => {
+    fetch("http://localhost:5003/getallcrafts")
+      .then((res) => res.json())
+      .then((data) => {
+        setLoadedCrafts(data);
+      });
+  };
+  useEffect(() => {
+    loadCrafts();
+  }, []);
 
   return (
     <div className="py-8">
@@ -74,7 +88,7 @@ const AllArtAndCraft = () => {
               ) : (
                 <tr>
                   <td colSpan="4" className="text-center">
-                    No items found
+                    <Loader />
                   </td>
                 </tr>
               )}
