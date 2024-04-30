@@ -11,7 +11,7 @@ const CraftItemsSection = () => {
 
   // fetching all crafts from url
   const loadAllCrafts = () => {
-    fetch("http://localhost:5003/getallcrafts")
+    fetch("https://artisan-space-server.vercel.app/getallcrafts")
       .then((res) => res.json())
       .then((data) => {
         // slicing the data for showing 6  data only

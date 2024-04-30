@@ -11,7 +11,7 @@ const AllArtAndCraft = () => {
   // fetching data
 
   const loadCrafts = () => {
-    fetch("http://localhost:5003/getallcrafts")
+    fetch("https://artisan-space-server.vercel.app/getallcrafts")
       .then((res) => res.json())
       .then((data) => {
         setLoadedCrafts(data);
