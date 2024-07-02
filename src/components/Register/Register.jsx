@@ -59,7 +59,7 @@ const Register = () => {
       // Displaying the toast with the formatted error messages
       toast.error(errorMessage, {
         enableHtml: true,
-        autoClose: off,
+        autoClose: true,
         style: {
           backgroundColor: "red",
           color: "white",
